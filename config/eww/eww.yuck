@@ -1,0 +1,80 @@
+(include "./bar/bar.yuck")
+(include "./menu/menu.yuck")
+
+(deflisten workspaces
+  :initial "[]"
+  "eww-helper workspaces"
+)
+(deflisten workspaces-left
+  :initial "{\"active\":false,\"workspaces\":[]}"
+  "eww-helper workspaces -m DP-2"
+)
+(deflisten workspaces-right
+  :initial "{\"active\":false,\"workspaces\":[]}"
+  "eww-helper workspaces -m DP-3"
+)
+
+(deflisten current-window-title
+  :initial ""
+  "eww-helper window-title"
+)
+
+; TODO: better scripts
+; can some polls be converted to listening variables?
+; currently needed in path: nmcli, amixer, eww-helper, bluetoothctl, brightnessctl, playerctl
+(defpoll vol-out-percent
+  :initial 100
+  :interval "1s"
+  "amixer sget Master | grep 'Left:' | sed 's/.*\\[\\([[:digit:]]*\\)%.*/\\1/'"
+)
+(defpoll vol-out-on
+  :initial false
+  :interval "1s"
+  "amixer sget Master | grep 'Left:' | sed 's/.*\\[\\([[:alpha:]]*\\)\\].*/\\1/; s/on/true/; s/off/false/'"
+)
+
+(defpoll wifi-block-state
+  :initial true
+  :interval "1s"
+  "rfkill -nro TYPE,SOFT,HARD | sed '/wlan/!d; s/.* blocked .*/true/g; s/[^t][^r][^u][^e].*/false/g'"
+)
+(defpoll wifi-state
+  :initial ""
+  :interval "1s"
+  :run-while {!wifi-block-state} "nmcli -g STATE general"
+)
+(defpoll wifi-name
+  :initial ""
+  :interval "1s"
+  :run-while {!wifi-block-state && wifi-state == "connected"}
+  "nmcli -g NAME connection show --active | sed 1q"
+)
+
+(defpoll bluetooth-unblocked
+  :initial false
+  :interval "1s"
+  "if (rfkill list bluetooth | grep -E 'Soft.*yes' > /dev/null); then echo 'false'; else echo 'true'; fi"
+)
+(defpoll bluetooth-connected-devices
+  :initial ""
+  :interval "1s"
+  :run-while {bluetooth-unblocked}
+  "bluetoothctl devices Connected | cut -b 26-"
+)
+
+(defpoll brightness-current
+  :initial 100
+  :interval "1s"
+  "brightnessctl -m | sed 's/.*,\\([[:digit:]]*\\)%.*/\\1/'"
+)
+
+(deflisten music
+  :initial "{\"player\":\"\",\"artist\":\"\",\"title\":\"\"}"
+  "playerctl --follow metadata --format '{\"player\":\"{{lc(playerName)}}\",\"artist\":\"{{markup_escape(artist)}}\",\"title\":\"{{markup_escape(title)}}\"}'"
+)
+
+(defwidget closer [window]
+  (button
+    :class "closer"
+    :onclick "eww close ${window} && eww close ${window}-closer"
+  ))

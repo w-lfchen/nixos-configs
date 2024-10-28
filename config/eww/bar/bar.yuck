@@ -1,0 +1,310 @@
+(defwidget menu-launcher []
+  (button
+    :class "bar-button"
+    :onclick "eww open-many --toggle menu-closer menu"
+    ; material has no nixos icon, use nerd font instead
+    (label
+      :class "nerdfont-icon menu-launcher-icon"
+      :text ""
+    )))
+
+(defwidget workspaces []
+  (box
+    :space-evenly false
+    :spacing 0
+    (for workspace in workspaces
+      (button
+        :class "bar-button ${workspace.class}"
+        :onclick "hyprctl dispatch workspace ${workspace.id}"
+        (label
+          :class {workspace.active ? "ws-active-label":""}
+          :text {workspace.name}
+        )))))
+
+(defwidget workspaces-left []
+  (box
+    :space-evenly false
+    :spacing 5
+    (for workspace in {workspaces-left.workspaces}
+      (button
+        :class "bar-button ${workspace.class} ${workspaces-left.active && workspace.active ? "ws-active":""}"
+        :onclick "hyprctl dispatch workspace ${workspace.id}"
+        (label
+          :class {workspace.active ? "ws-active-label":""}
+          :text {workspace.name}
+        )))))
+
+(defwidget workspaces-right []
+  (box
+    :space-evenly false
+    :spacing 5
+    (for workspace in {workspaces-right.workspaces}
+      (button
+        :class "bar-button ${workspace.class} ${workspaces-right.active && workspace.active ? "ws-active":""}"
+        :onclick "hyprctl dispatch workspace ${workspace.id}"
+        (label
+          :class {workspace.active ? "ws-active-label":""}
+          :text {workspace.name}
+        )))))
+
+(defwidget title []
+  (label
+    :visible {current-window-title != ""}
+    :limit-width 80
+    :text current-window-title
+  ))
+
+; currently only supporting spotify, other players may show up
+(defwidget music-icon []
+  (label
+    :class "nerdfont-icon music-icon"
+    :visible {music != "" && music?.player == "spotify"}
+    :text ""
+  ))
+
+(defwidget music-label []
+  (label
+    :visible {music != "" && music.title != ""}
+    ; for some reason, spotify doesn't tell playerctl the artist when first starting the it
+    ; use markup because songs can contain characters such as '"', playerctl should handle escaping everything
+    :markup "${music.artist != "" ? "${music.artist} - " : ""}${music.title}"
+  ))
+
+;for use in bars directly
+(defwidget music []
+  (box
+    :class "module-box"
+    :space-evenly false
+    :spacing 10
+    ; currently, this is used exclusively for music things
+    :visible {music != "" && music.player != ""}
+    (music-icon) (music-label)
+  ))
+
+(defvar wifi-reveal false)
+(defwidget wifi []
+  (eventbox
+    :onhover "eww update wifi-reveal=true"
+    :onhoverlost "eww update wifi-reveal=false"
+    :onclick "eww update wifi-reveal=${!wifi-reveal}"
+    (box
+      :space-evenly false
+      :spacing 0
+      (label
+        :class "material-icon"
+        :style "color: ${wifi-block-state ? "#f38ba8" : "#cdd6f4"};"
+        :text {wifi-block-state ? "" : (wifi-state == "connected" ? "" : (wifi-state == "connected (local only)" ? "" : ""))}
+      )
+      (revealer
+        :duration "200ms"
+        :transition "slideright"
+        :reveal wifi-reveal
+        (label
+          :class "bar-revealer-label"
+          :text {wifi-block-state ? "blocked" : (wifi-state == "connected" ? wifi-name : wifi-state)}
+        )))))
+
+(defvar bt-reveal false)
+(defwidget bt []
+  (eventbox
+    :visible bluetooth-unblocked
+    :onhover "eww update bt-reveal=true"
+    :onhoverlost "eww update bt-reveal=false"
+    (button
+      :class "bar-button"
+      :timeout "1s"
+      :onclick "blueman-manager &"
+      (box
+        :space-evenly false
+        :spacing 0
+        (label
+          :class "material-icon"
+          :style "color: #0082FC;"
+          :text {strlength(bluetooth-connected-devices) != 0 ? "" : ""}
+        )
+        (revealer
+          :duration "200ms"
+          :transition "slideright"
+          :reveal {bt-reveal && strlength(bluetooth-connected-devices) != 0}
+          (label
+            :class "bar-revealer-label"
+            :text bluetooth-connected-devices
+          ))))))
+
+(defvar vol-reveal false)
+(defwidget vol []
+  (eventbox
+    :onhover "eww update vol-reveal=true"
+    :onhoverlost "eww update vol-reveal=false"
+    (button
+      :class "bar-button"
+      :onclick "amixer sset Master toggle"
+      (box
+        :space-evenly false
+        :spacing 0
+        (label
+          :class "material-icon"
+          :text {vol-out-on ? "" : ""}
+        )
+        (revealer
+          :reveal {vol-out-on && vol-reveal}
+          :transition "slideright"
+          :duration "200ms"
+          (label
+            :class "bar-revealer-label"
+            :text "${vol-out-percent}%"
+          ))))))
+
+(defvar bat-reveal false)
+(defwidget bat []
+  (eventbox
+    :onhover "eww update bat-reveal=true"
+    :onhoverlost "eww update bat-reveal=false"
+    (box
+      :space-evenly false
+      :spacing 0
+      (circular-progress
+        :class "bat-circle"
+        :value {jq(EWW_BATTERY, "[.[]][0]").capacity}
+        :clockwise true
+        :start-at 75
+        :thickness 3
+        :width 26
+        (label
+          :class "material-icon"
+          :style "font-size: 1em;"
+          :text {jq(EWW_BATTERY, "[.[]][0]").status == "Charging" ? "" : ""}
+        )
+      )
+      (revealer
+        :reveal {jq(EWW_BATTERY, "[.[]][0]").capacity < 10 || bat-reveal}
+        :transition "slideleft"
+        :duration "200ms"
+        :style "padding-left: 5px;"
+        "${jq(EWW_BATTERY, "[.[]][0]").capacity}%"
+      ))))
+
+(defvar time-reveal false)
+(defwidget time []
+  (eventbox
+    :onhover "eww update time-reveal=true"
+    :onhoverlost "eww update time-reveal=false"
+    (box
+      :space-evenly false
+      :spacing 0
+      {formattime(EWW_TIME, "%R")}
+      (revealer
+        :reveal time-reveal
+        :transition "slideleft"
+        :duration "200ms"
+        {formattime(EWW_TIME, ":%S")}
+      ))))
+
+(defwidget bar []
+  (centerbox
+    (box ; left modules
+      :class "module-box"
+      :space-evenly false
+      :spacing 10
+      :halign "start"
+      (menu-launcher)
+      "|"
+      (workspaces)
+      (label
+        :visible {current-window-title != ""}
+        :text "|"
+      )
+      (title)
+    )
+    ; currently, center modules consist of music only, so move everything there instead
+    (music)
+    (box ; right modules
+      :class "module-box"
+      :space-evenly false
+      :spacing 10
+      :halign "end"
+      (wifi) (bt) (vol) (bat) (time)
+    )))
+
+(defwidget left-bar []
+  (centerbox
+    (box ; left modules
+      :class "module-box"
+      :space-evenly false
+      :spacing 10
+      :halign "start"
+      (menu-launcher)
+      "|"
+      (workspaces-left)
+    )
+    ; currently, center modules consist of music only, so move everything there instead
+    (music)
+    (box ; right modules
+      :class "module-box"
+      :space-evenly false
+      :spacing 10
+      :halign "end"
+      (vol) (time)
+    )))
+
+(defwidget right-bar []
+  (centerbox
+    (box ; left modules
+      :class "module-box"
+      :space-evenly false
+      :spacing 10
+      :halign "start"
+      (menu-launcher)
+      "|"
+      (workspaces-right)
+    )
+    (box ; center modules
+      :class "module-box"
+      :space-evenly false
+      :spacing 10
+      :visible {current-window-title != ""}
+      (title)
+    )
+    (box ; right modules
+      :class "module-box"
+      :space-evenly false
+      :spacing 10
+      :halign "end"
+      (vol) (time)
+    )))
+
+(defwindow bar
+  :monitor 0
+  :stacking "fg"
+  :focusable false
+  :exclusive true
+  :geometry (geometry
+    :width "100%"
+    :height "30px"
+    :anchor "top center"
+  )
+  (bar))
+
+(defwindow left-bar []
+  :monitor "DP-2"
+  :stacking "fg"
+  :focusable false
+  :exclusive true
+  :geometry (geometry
+    :width "100%"
+    :height "30px"
+    :anchor "top center"
+  )
+  (left-bar))
+
+(defwindow right-bar []
+  :monitor "DP-3"
+  :stacking "fg"
+  :focusable false
+  :exclusive true
+  :geometry (geometry
+    :width "100%"
+    :height "30px"
+    :anchor "top center"
+  )
+  (right-bar))

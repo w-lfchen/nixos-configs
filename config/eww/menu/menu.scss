@@ -1,0 +1,36 @@
+.menu {
+    all: unset;
+    background-color: transparent;
+}
+
+.menu-box-main {
+    border-radius: 10px;
+    background-color: $crust;
+    padding: 10px;
+    margin: 10px;
+    //border: 1px solid $mauve;
+}
+
+.menu-box-sub {
+    border-radius: 10px;
+    padding: 10px;
+    background-color: $base;
+}
+
+.menu-button {
+    background-color: transparent;
+}
+
+.menu-scale trough {
+    min-height: 10px;
+    border-radius: 10px;
+    background-color: $surface0;
+}
+
+.menu-scale trough highlight {
+    border-radius: 10px;
+}
+
+.menu-closer {
+    all: unset;
+}

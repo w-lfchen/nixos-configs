@@ -1,0 +1,26 @@
+diff --git a/src/catppuccin-mocha-grub-theme/theme.txt b/src/catppuccin-mocha-grub-theme/theme.txt
+index 84cb2c8..ea2ccbc 100644
+--- a/src/catppuccin-mocha-grub-theme/theme.txt
++++ b/src/catppuccin-mocha-grub-theme/theme.txt
+@@ -13,18 +13,11 @@ terminal-width: "100%"
+ terminal-height: "100%"
+ terminal-border: "0"
+ 
+-# Logo image
+-+ image {
+-	left = 50%-50
+-	top = 50%-50
+-    file = "logo.png"
+-}
+-
+ # Show the boot menu
+ + boot_menu {
+-  left = 50%-240
+-  top = 60%
+-  width = 480
++  left = 50%-300
++  top = 40%
++  width = 600
+   height = 30%
+   item_font = "Unifont Regular 16"
+   item_color = "#CDD6F4"

@@ -1,0 +1,126 @@
+(defwidget menu-brightness []
+  (box
+    :class "menu-box-sub"
+    :height 50
+    :space-evenly false
+    :spacing 10
+    (label
+      :width 50
+      :class "material-icon"
+      :text ""
+    )
+    (scale
+      :class "menu-scale"
+      :hexpand true
+      :value brightness-current
+      :onchange "brightnessctl set {}% && eww update brightness-current={}"
+      :orientation "h"
+      :flipped false
+      :max 101
+      :min 0
+    )
+    (label
+      :width 50
+      :text "${brightness-current}%"
+    )))
+
+(defwidget menu-vol []
+  (box
+    :class "menu-box-sub"
+    :height 50
+    :space-evenly false
+    :spacing 10
+    (button
+      :width 50
+      :class "menu-button"
+      :onclick "amixer sset Master toggle"
+      (label
+        :class "material-icon"
+        :text {vol-out-on ? "" : ""}
+      ))
+    (scale
+      :class "menu-scale"
+      :hexpand true
+      :value vol-out-percent
+      :onchange "amixer sset Master {}% && eww update vol-out-percent={}"
+      :orientation "h"
+      :flipped false
+      :max 101
+      :min 0
+    )
+    (label
+      :width 50
+      :text "${vol-out-percent}%"
+    )))
+
+(defwidget menu-wifi []
+  (box
+    :class "menu-box-sub"
+    :height 50
+    :space-evenly false
+    :spacing 0
+    (button
+      :width 50
+      :class "menu-button"
+      :onclick "rfkill toggle wifi"
+      (label
+        :class "material-icon"
+        :style "color: ${wifi-block-state ? "#f38ba8" : "#cdd6f4"};"
+        :text {wifi-block-state ? "" : (wifi-state == "connected" ? "" : (wifi-state == "connected (local only)" ? "" : ""))}
+      ))
+    (label
+      :class "wifi-label"
+      :text {wifi-block-state ? "blocked" : (wifi-state == "connected" ? wifi-name : wifi-state)}
+    )
+  ))
+
+(defwidget menu-bluetooth []
+  (box
+    :class "menu-box-sub"
+    :height 50
+    :space-evenly false
+    (button
+      :width 50
+      :class "menu-button"
+      :onclick "rfkill toggle bluetooth"
+      (label
+        :class "material-icon"
+        :style "color: ${bluetooth-unblocked ? "#0082FC" : "#f38ba8"};"
+        :text {bluetooth-unblocked ? (strlength(bluetooth-connected-devices) != 0 ? "" : "") : ""}
+      ))
+    (label
+      :text {bluetooth-unblocked ? (strlength(bluetooth-connected-devices) != 0 ? bluetooth-connected-devices : "disconnected" ) : "blocked"}
+    )
+  ))
+
+(defvar color "red")
+(defwidget menu-box []
+  (box
+    :class "menu-box-main"
+    :orientation "v"
+    :space-evenly false
+    :spacing 10
+    (menu-brightness)
+    (menu-vol)
+    (menu-wifi)
+    (menu-bluetooth)
+  ))
+
+(defwindow menu
+  :monitor 0
+  :stacking "fg"
+  :focusable false
+  :exclusive false
+  :geometry (geometry
+    :width "400px"
+    ;:height "600px" TODO: figure out whether to use this
+    :anchor "top left"
+  )
+  (menu-box))
+
+(defwindow menu-closer
+  :monitor 0
+  :geometry (geometry :width "100%" :height "100%")
+  :stacking "fg"
+  :focusable false
+  (closer :window "menu"))

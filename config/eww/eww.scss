@@ -1,0 +1,13 @@
+@import 'mocha.scss';
+@import 'bar/bar.scss';
+@import 'menu/menu.scss';
+
+* {
+    font-family: FiraCode Nerd Font Propo;
+    font-size: 14px;
+    color: #cdd6f4;
+}
+
+.closer {
+    all: unset;
+}

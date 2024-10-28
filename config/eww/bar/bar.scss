@@ -1,0 +1,62 @@
+// bar window styling
+.left-bar,
+.right-bar,
+.bar {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.bar-button {
+    background-color: transparent;
+    padding: 0px;
+}
+
+.module-box {
+    background-color: $base;
+    border-radius: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.ws-button {
+    min-width: 30px;
+}
+
+.ws-active-label {
+    border-bottom: 3px solid $mauve;
+    border-top: 3px solid transparent;
+}
+
+.nerdfont-icon {
+    font-family: 'FiraCode Nerd Font Propo';
+    font-size: 1.5em;
+}
+
+.material-icon {
+    font-family: Material Symbols Outlined;
+    // the google docs recommend this, but i dont think it looks good
+    // maybe im missing something (different font or something)
+    // padding-top: 0.115em;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
+.menu-launcher-icon {
+    color: $blue;
+    font-size: 1.7em;
+}
+
+.music-icon {
+    color: $green;
+}
+
+.bat-circle {
+    color: $mauve;
+    background-color: $surface0;
+}
+
+.bar-revealer-label {
+    padding-left: 5px;
+    padding-right: 5px;
+}
