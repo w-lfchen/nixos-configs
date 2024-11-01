@@ -20,6 +20,7 @@
   programs = {
     fish.enable = true;
     git.enable = true;
+    nano.enable = false;
     neovim = {
       enable = true;
       defaultEditor = true;
