@@ -8,7 +8,6 @@
   environment = {
     shells = with pkgs; [ fish ];
     systemPackages = with pkgs; [
-      git
       kitty
       ripgrep
       ripgrep-all
@@ -20,6 +19,7 @@
 
   programs = {
     fish.enable = true;
+    git.enable = true;
     neovim = {
       enable = true;
       defaultEditor = true;
