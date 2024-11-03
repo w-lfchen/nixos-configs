@@ -246,11 +246,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722366444,
-        "narHash": "sha256-2frWrESEHR1wb/h1pCOA1HP3QH+1RZQyvN+hqdQVx84=",
+        "lastModified": 1730632455,
+        "narHash": "sha256-c+2VZJQqsNecIdmeHs6tp09yNIhKJHKGohvYgBZW1Og=",
         "owner": "w-lfchen",
         "repo": "eww-scripts",
-        "rev": "1b776a507caf28ac10b5a7d8ea3801cd0fafd3ad",
+        "rev": "78b21e66b64be095a15ad91a1c5fcf01945037dd",
         "type": "github"
       },
       "original": {
