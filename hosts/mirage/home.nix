@@ -17,7 +17,7 @@
     ];
     exec = [
       "pkill swaybg; swaybg -i ${paths.wallpapers}/mirage/wallpaper.png"
-      "pkill eww; eww-helper launch-eww"
+      "pkill eww; eww o bar"
     ];
   };
 }

@@ -17,7 +17,7 @@
     ];
     exec = [
       "pkill swaybg; swaybg -o DP-3 -i ${paths.wallpapers}/refuge/nix-cat-crust.png -o DP-2 -i ${paths.wallpapers}/refuge/line-crust.png"
-      "pkill eww; eww-helper launch-eww -p 0,2560"
+      "pkill eww; eww open-many left-bar right-bar"
     ];
   };
 }
