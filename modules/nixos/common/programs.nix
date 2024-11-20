@@ -8,7 +8,6 @@
     librewolf
     obsidian
     signal-desktop
-    slack
     vesktop
     vlc
     xournalpp
@@ -18,7 +17,6 @@
     "discord"
     "idea-ultimate"
     "obsidian"
-    "slack"
   ];
 
   programs = {
