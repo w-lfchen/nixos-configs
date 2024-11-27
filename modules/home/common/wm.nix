@@ -134,12 +134,14 @@
           size = 6;
         };
 
-        drop_shadow = true;
-        "col.shadow" = "rgba(1a1a1aee)";
-        shadow_range = 4;
-        shadow_render_power = 3;
-
         rounding = 10;
+
+        shadow = {
+          enabled = true;
+          color = "rgba(1a1a1aee)";
+          range = 4;
+          render_power = 3;
+        };
       };
       dwindle = {
         preserve_split = true;
