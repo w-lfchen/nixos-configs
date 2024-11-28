@@ -11,6 +11,7 @@
     vesktop
     vlc
     xournalpp
+    zotero
   ];
 
   unfree.allowedPackages = [
