@@ -8,7 +8,7 @@
       fira-go
       inconsolata-lgc
       material-symbols
-      nerdfonts
+      nerd-fonts.fira-code
       noto-fonts
       noto-fonts-color-emoji
       rictydiminished-with-firacode
