@@ -1,8 +1,19 @@
-_: {
+{ pkgs, ... }:
+{
   services = {
     # not really happy with this but it's enough for now, maybe use eww instead
     avizo = {
       enable = true;
+      package = pkgs.avizo.overrideAttrs (
+        final: prev: {
+          src = pkgs.fetchFromGitHub {
+            owner = "heyjuvi";
+            repo = "avizo";
+            rev = "5efaa22968b2cc1a3c15a304cac3f22ec2727b17";
+            sha256 = "sha256-KYQPHVxjvqKt4d7BabplnrXP30FuBQ6jQ1NxzR5U7qI=";
+          };
+        }
+      );
       settings.default = {
         background = "rgba(30, 30, 46, 1)";
         bar-bg-color = "rgba(108, 112, 134, 1)";
