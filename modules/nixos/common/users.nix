@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   users = {
-    defaultUserShell = pkgs.fish;
+    defaultUserShell = pkgs.powershell;
     users.wolf = {
       isNormalUser = true;
       description = "Wölfchen";

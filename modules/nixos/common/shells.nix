@@ -6,8 +6,9 @@
   };
 
   environment = {
-    shells = with pkgs; [ fish ];
+    shells = with pkgs; [ powershell ];
     systemPackages = with pkgs; [
+      fish
       kitty
       ripgrep
       ripgrep-all
