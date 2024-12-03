@@ -8,6 +8,7 @@
     nil
     nixfmt-rfc-style
     nix-output-monitor
+    apt
   ];
 
   nix.settings = {
