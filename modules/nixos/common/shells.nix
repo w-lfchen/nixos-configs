@@ -9,6 +9,7 @@
     shells = with pkgs; [ fish ];
     systemPackages = with pkgs; [
       kitty
+      restic
       ripgrep
       ripgrep-all
       unzip
