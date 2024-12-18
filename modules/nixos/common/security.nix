@@ -1,10 +1,7 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     gnupg1
-    # TODO: are the greetd packages needed?
-    greetd.greetd
-    greetd.tuigreet
     keepassxc
     pinentry
   ];
@@ -32,14 +29,16 @@
       enable = true;
       settings = {
         default_session = {
-          command = ''
-            ${pkgs.greetd.tuigreet}/bin/tuigreet \
-            -t \
-            --asterisks \
-            -g "Access is restricted to authorised personnel only." \
-            --cmd Hyprland
-          '';
-          user = "wolf";
+          command = lib.concatStringsSep " " [
+            (lib.getExe pkgs.greetd.tuigreet)
+            "--asterisks"
+            "--greeting 'Access is restricted to authorised personnel only.'"
+            "--remember"
+            "--remember-user-session"
+            "--time"
+            "--cmd Hyprland"
+          ];
+          user = "greeter";
         };
       };
     };
