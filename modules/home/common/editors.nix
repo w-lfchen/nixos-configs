@@ -1,12 +1,12 @@
 { inputs, pkgs, ... }:
 {
   # helix
+  catppuccin.helix = {
+    enable = true;
+    useItalics = true;
+  };
   programs.helix = {
     enable = true;
-    catppuccin = {
-      enable = true;
-      useItalics = true;
-    };
     defaultEditor = false;
     settings = {
       editor = {
@@ -17,9 +17,9 @@
   };
 
   # nvim
+  catppuccin.nvim.enable = true;
   programs.neovim = {
     enable = true;
-    catppuccin.enable = true;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
@@ -58,7 +58,8 @@
     # https://github.com/microsoft/vscode/issues/188624#issuecomment-1652888196
     userSettings = {
       "diffEditor.ignoreTrimWhitespace" = false;
-      "editor.fontFamily" = "'FiraCode Nerd Font Mono', 'Material Symbols Rounded', 'monospace', monospace";
+      "editor.fontFamily" =
+        "'FiraCode Nerd Font Mono', 'Material Symbols Rounded', 'monospace', monospace";
       "editor.fontLigatures" = true;
       "editor.renderWhitespace" = "all";
       "hexeditor.columnWidth" = 16;

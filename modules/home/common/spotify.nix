@@ -14,9 +14,9 @@
     };
 
   # spotify-player
+  catppuccin.spotify-player.enable = true;
   programs.spotify-player = {
     enable = true;
-    catppuccin.enable = true;
     settings = {
       client_port = 8080;
       playback_format = ''

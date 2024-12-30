@@ -1,7 +1,8 @@
 { pkgs, ... }:
 {
+  catppuccin.tty.enable = true;
+
   console = {
-    catppuccin.enable = true;
     keyMap = "de";
   };
 

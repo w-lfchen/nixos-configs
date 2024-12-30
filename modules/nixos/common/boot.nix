@@ -12,7 +12,6 @@
       grub = {
         enable = true;
         backgroundColor = "#1E1E2E";
-        catppuccin.enable = true;
         device = "nodev";
         efiSupport = true;
         splashImage = lib.mkForce null;
@@ -23,4 +22,6 @@
       };
     };
   };
+
+  catppuccin.grub.enable = true;
 }
