@@ -4,7 +4,6 @@
     modules.home.default
     modules.home.nvidia
     modules.home.obs
-    modules.home.swaylock
   ];
 
   home.stateVersion = "23.05"; # don't change this value
