@@ -2,7 +2,7 @@
 {
   imports = [
     modules.home.default
-    modules.home.hyprlock
+    modules.home.swaylock
     modules.home.wlogout
   ];
 
