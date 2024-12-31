@@ -28,7 +28,7 @@
       url = "github:w-lfchen/eww/feat/updates";
       # url = "github:elkowar/eww";
       inputs = {
-        flake-compat.follows = "flake-compat";
+        flake-compat.follows = "";
         nixpkgs.follows = "nixpkgs";
       };
     };
@@ -45,7 +45,7 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "flake-compat";
+        flake-compat.follows = "";
         flake-utils.follows = "flake-utils";
       };
     };
@@ -63,13 +63,12 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "flake-compat";
+        flake-compat.follows = "";
       };
     };
 
     # just for 'follows'
     flake-utils.url = "github:numtide/flake-utils";
-    flake-compat.url = "github:edolstra/flake-compat/refs/pull/65/head";
   };
 
   outputs =
@@ -86,7 +85,6 @@
       spicetify-nix,
       # not used
       flake-utils,
-      flake-compat,
     }@inputs:
     let
       system = "x86_64-linux";
