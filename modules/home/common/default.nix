@@ -7,6 +7,7 @@
     ./programs.nix
     ./services.nix
     ./spotify.nix
+    ./swaylock.nix
     ./terminals.nix
     ./wm.nix
   ];
