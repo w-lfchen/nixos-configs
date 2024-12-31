@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  catppuccin.mako.enable = true;
   services = {
     # not really happy with this but it's enough for now, maybe use eww instead
     avizo = {
@@ -35,7 +36,6 @@
     };
     mako = {
       enable = true;
-      catppuccin.enable = true;
       borderRadius = 6;
       borderSize = 3;
       defaultTimeout = 5000;

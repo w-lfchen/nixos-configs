@@ -6,6 +6,9 @@
 }:
 {
   # bars and launchers
+  # not using rofi's catppuccin option due to the theme having a few issues
+  # theme has been adapted and extended
+  catppuccin.rofi.enable = false;
   programs = {
     # not managing eww through home-manager
     # instead created a symlink in .config and added it to systemPackages
@@ -17,9 +20,6 @@
     # };
     rofi = {
       enable = true;
-      # not using the catppuccin option here due to the theme having a few issues
-      # theme has been adapted and extended
-      catppuccin.enable = false;
       cycle = true;
       font = "FiraCode Nerd Font Propo 14";
       package = pkgs.rofi-wayland;
@@ -43,9 +43,9 @@
   };
 
   # hyprland
+  catppuccin.hyprland.enable = true;
   wayland.windowManager.hyprland = {
     enable = true;
-    catppuccin.enable = true;
     settings = {
       "$mainMod" = "SUPER";
 

@@ -9,18 +9,18 @@
     '';
   };
 
+  catppuccin = {
+    imv.enable = true;
+    zathura.enable = true;
+  };
   programs = {
-    imv = {
-      enable = true;
-      catppuccin.enable = true;
-    };
+    imv.enable = true;
     thunderbird = {
       enable = true;
       profiles."default".isDefault = true;
     };
     zathura = {
       enable = true;
-      catppuccin.enable = true;
       options = {
         font = "FiraCode Nerd Font normal 10";
         selection-clipboard = "clipboard";

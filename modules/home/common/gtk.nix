@@ -1,12 +1,13 @@
 { pkgs, ... }:
 {
+  catppuccin.gtk = {
+    enable = true;
+    size = "compact";
+    tweaks = [ "rimless" ];
+  };
+
   gtk = {
     enable = true;
-    catppuccin = {
-      enable = true;
-      size = "compact";
-      tweaks = [ "rimless" ];
-    };
     font = {
       name = "Roboto Condensed";
       size = 10;
@@ -29,7 +30,7 @@
   };
 
   # cursors
-  catppuccin.pointerCursor.enable = false;
+  catppuccin.cursors.enable = false;
   home.pointerCursor = {
     gtk.enable = true;
     name = "capitaine-cursors";
