@@ -1,8 +1,9 @@
 { paths, pkgs, ... }:
 {
+  catppuccin.swaylock.enable = true;
+
   programs.swaylock = {
     enable = true;
-    catppuccin.enable = true;
     package = pkgs.swaylock-effects;
     settings = {
       # use this instead of `builtins.toString wallpapers + "/refuge/line-crust.png"` in order to not rebuild upon whitespace change
