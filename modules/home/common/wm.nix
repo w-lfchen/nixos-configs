@@ -1,14 +1,5 @@
-{
-  config,
-  paths,
-  pkgs,
-  ...
-}:
-{
+_: {
   # bars and launchers
-  # not using rofi's catppuccin option due to the theme having a few issues
-  # theme has been adapted and extended
-  catppuccin.rofi.enable = false;
   catppuccin.tofi.enable = true;
   programs = {
     # not managing eww through home-manager
@@ -19,29 +10,6 @@
     #   package = pkgs.eww-wayland;
     #   configDir = ~/nixos-configs/eww;
     # };
-    rofi = {
-      enable = true;
-      cycle = true;
-      font = "FiraCode Nerd Font Propo 14";
-      package = pkgs.rofi-wayland;
-      terminal = "${config.programs.kitty.package}/bin/kitty --hold";
-      # no interpolation to avoid unnecessary closure changes
-      theme = paths.config + "/rofi/catppuccin-mocha.rasi";
-      extraConfig = {
-        disable-history = false;
-        display-drun = "";
-        display-filebrowser = "󰉖";
-        display-run = "";
-        drun-display-format = "{icon} {name}";
-        hide-scrollbar = true;
-        matching = "normal";
-        modi = "drun,run,filebrowser";
-        run-display-format = "{name}";
-        show-icons = true;
-        sidebar-mode = true;
-      };
-    };
-
     tofi = {
       enable = true;
       settings = {
@@ -98,7 +66,7 @@
           "$mainMod, M, exit, "
           "$mainMod, E, exec, dolphin"
           "$mainMod, V, togglefloating, "
-          "$mainMod, R, exec, rofi -show drun"
+          "$mainMod, R, exec, tofi-drun"
           "$mainMod, P, pseudo, # dwindle"
           "$mainMod, J, togglesplit, # dwindle"
           "$mainMod, F, fullscreen, 0"
