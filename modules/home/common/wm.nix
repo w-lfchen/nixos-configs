@@ -9,6 +9,7 @@
   # not using rofi's catppuccin option due to the theme having a few issues
   # theme has been adapted and extended
   catppuccin.rofi.enable = false;
+  catppuccin.tofi.enable = true;
   programs = {
     # not managing eww through home-manager
     # instead created a symlink in .config and added it to systemPackages
@@ -38,6 +39,34 @@
         run-display-format = "{name}";
         show-icons = true;
         sidebar-mode = true;
+      };
+    };
+
+    tofi = {
+      enable = true;
+      settings = {
+        # dimensions
+        height = 240;
+        width = 480;
+        padding-top = 20;
+        padding-bottom = 20;
+        padding-left = 20;
+        padding-right = 20;
+        num-results = 5;
+        result-spacing = 10;
+        # border/outline
+        border-color = "#cba6f7";
+        border-width = 2;
+        corner-radius = 10;
+        outline-width = 0;
+        # font
+        font = "FiraCode Nerd Font Propo";
+        font-size = 14;
+        # misc
+        terminal = "kitty";
+        text-cursor = true;
+        fuzzy-match = true;
+        drun-launch = true;
       };
     };
   };
