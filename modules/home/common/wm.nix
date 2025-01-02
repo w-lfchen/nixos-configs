@@ -1,14 +1,6 @@
-{
-  config,
-  paths,
-  pkgs,
-  ...
-}:
-{
+_: {
   # bars and launchers
-  # not using rofi's catppuccin option due to the theme having a few issues
-  # theme has been adapted and extended
-  catppuccin.rofi.enable = false;
+  catppuccin.tofi.enable = true;
   programs = {
     # not managing eww through home-manager
     # instead created a symlink in .config and added it to systemPackages
@@ -18,26 +10,31 @@
     #   package = pkgs.eww-wayland;
     #   configDir = ~/nixos-configs/eww;
     # };
-    rofi = {
+    tofi = {
       enable = true;
-      cycle = true;
-      font = "FiraCode Nerd Font Propo 14";
-      package = pkgs.rofi-wayland;
-      terminal = "${config.programs.kitty.package}/bin/kitty --hold";
-      # no interpolation to avoid unnecessary closure changes
-      theme = paths.config + "/rofi/catppuccin-mocha.rasi";
-      extraConfig = {
-        disable-history = false;
-        display-drun = "";
-        display-filebrowser = "󰉖";
-        display-run = "";
-        drun-display-format = "{icon} {name}";
-        hide-scrollbar = true;
-        matching = "normal";
-        modi = "drun,run,filebrowser";
-        run-display-format = "{name}";
-        show-icons = true;
-        sidebar-mode = true;
+      settings = {
+        # dimensions
+        height = 240;
+        width = 480;
+        padding-top = 20;
+        padding-bottom = 20;
+        padding-left = 20;
+        padding-right = 20;
+        num-results = 5;
+        result-spacing = 10;
+        # border/outline
+        border-color = "#cba6f7";
+        border-width = 2;
+        corner-radius = 10;
+        outline-width = 0;
+        # font
+        font = "FiraCode Nerd Font Propo";
+        font-size = 14;
+        # misc
+        terminal = "kitty";
+        text-cursor = true;
+        fuzzy-match = true;
+        drun-launch = true;
       };
     };
   };
@@ -69,7 +66,7 @@
           "$mainMod, M, exit, "
           "$mainMod, E, exec, dolphin"
           "$mainMod, V, togglefloating, "
-          "$mainMod, R, exec, rofi -show drun"
+          "$mainMod, R, exec, tofi-drun"
           "$mainMod, P, pseudo, # dwindle"
           "$mainMod, J, togglesplit, # dwindle"
           "$mainMod, F, fullscreen, 0"
