@@ -57,7 +57,13 @@ _: {
       enableNushellIntegration = true;
       enableZshIntegration = true;
     };
-    zellij.enable = true;
+    zellij = {
+      enable = true;
+      settings = {
+        copy_on_select = false;
+        ui.pane_frames.rounded_corners = true;
+      };
+    };
     zoxide.enable = true;
   };
 }
