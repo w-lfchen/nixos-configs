@@ -31,6 +31,7 @@ _: {
     btop.enable = true;
     fzf.enable = true;
     yazi.enable = true;
+    zellij.enable = true;
   };
   programs = {
     bat.enable = true;
@@ -56,6 +57,7 @@ _: {
       enableNushellIntegration = true;
       enableZshIntegration = true;
     };
+    zellij.enable = true;
     zoxide.enable = true;
   };
 }
