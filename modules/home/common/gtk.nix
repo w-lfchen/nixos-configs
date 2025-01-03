@@ -2,6 +2,7 @@
 {
   catppuccin.gtk = {
     enable = true;
+    icon.enable = true;
     size = "compact";
     tweaks = [ "rimless" ];
   };
@@ -11,13 +12,6 @@
     font = {
       name = "Roboto Condensed";
       size = 10;
-    };
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.catppuccin-papirus-folders.override {
-        flavor = "mocha";
-        accent = "mauve";
-      };
     };
   };
 
