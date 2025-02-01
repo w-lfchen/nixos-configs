@@ -4,7 +4,7 @@
     inputs.catppuccin.nixosModules.catppuccin
     ./audio.nix
     ./boot.nix
-    ./db.nix
+    ./development.nix
     ./fonts.nix
     ./hardware-configuration.nix
     ./locale.nix

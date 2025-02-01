@@ -6,9 +6,10 @@
       isNormalUser = true;
       description = "Wölfchen";
       extraGroups = [
+        "adbusers"
+        "docker"
         "networkmanager"
         "wheel"
-        "adbusers"
       ];
       packages = [ ];
     };
