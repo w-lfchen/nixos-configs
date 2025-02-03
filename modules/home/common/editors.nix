@@ -99,6 +99,15 @@
       "window.titleBarStyle" = "custom";
       "workbench.colorTheme" = "Catppuccin Mocha";
       "workbench.iconTheme" = "catppuccin-mocha";
+
+      # language settings
+      "[typst]"."editor.wordSeparators" = "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?";
     };
   };
+
+  # lsps/formatters
+  home.packages = with pkgs; [
+    tinymist
+    typst
+  ];
 }
