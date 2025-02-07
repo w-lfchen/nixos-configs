@@ -101,7 +101,9 @@
       "workbench.iconTheme" = "catppuccin-mocha";
 
       # language settings
+      # tinymist (i think it's the culprit) kept wanting to add these
       "[typst]"."editor.wordSeparators" = "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?";
+      "[typst-code]"."editor.wordSeparators" = "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?";
     };
   };
 
