@@ -11,16 +11,7 @@
 
     catppuccin = {
       url = "github:catppuccin/nix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        # disable inputs we don't need
-        nixpkgs-stable.follows = "";
-        home-manager.follows = "";
-        home-manager-stable.follows = "";
-        nuscht-search.follows = "";
-        catppuccin-v1_1.follows = "";
-        catppuccin-v1_2.follows = "";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     eww = {
@@ -61,10 +52,7 @@
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # just for 'follows'
