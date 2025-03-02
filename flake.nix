@@ -11,16 +11,7 @@
 
     catppuccin = {
       url = "github:catppuccin/nix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        # disable inputs we don't need
-        nixpkgs-stable.follows = "";
-        home-manager.follows = "";
-        home-manager-stable.follows = "";
-        nuscht-search.follows = "";
-        catppuccin-v1_1.follows = "";
-        catppuccin-v1_2.follows = "";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     eww = {
@@ -34,7 +25,7 @@
     };
 
     lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-1.tar.gz";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
       inputs = {
         flake-utils.follows = "flake-utils";
         nixpkgs.follows = "nixpkgs";
@@ -63,12 +54,16 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "";
+        systems.follows = "systems";
       };
     };
 
     # just for 'follows'
-    flake-utils.url = "github:numtide/flake-utils";
+    systems.url = "github:nix-systems/default";
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs.systems.follows = "systems";
+    };
   };
 
   outputs =
@@ -85,6 +80,7 @@
       spicetify-nix,
       # not used
       flake-utils,
+      systems,
     }@inputs:
     let
       system = "x86_64-linux";
