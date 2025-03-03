@@ -17,6 +17,10 @@
   ];
 
   # host specific config
+
+  # TODO: driver regression
+  boot.kernelPackages = pkgs.linuxPackages_6_6;
+
   environment.systemPackages = with pkgs; [ brightnessctl ];
 
   security.pam.services.swaylock = { };
