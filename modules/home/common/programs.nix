@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   # librewolf/firefox thing
   home.activation = {
@@ -17,6 +17,7 @@
     imv.enable = true;
     thunderbird = {
       enable = true;
+      package = pkgs.thunderbird-latest;
       profiles."default".isDefault = true;
     };
     zathura = {
