@@ -36,7 +36,6 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "";
         flake-utils.follows = "flake-utils";
       };
     };
