@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   imports = [
-    inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.catppuccin.homeModules.catppuccin
     ./editors.nix
     ./gtk.nix
     ./programs.nix
