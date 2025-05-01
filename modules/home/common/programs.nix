@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, ... }:
 {
   # librewolf/firefox thing
   home.activation = {
@@ -15,11 +15,12 @@
   };
   programs = {
     imv.enable = true;
-    thunderbird = {
-      enable = true;
-      package = pkgs.thunderbird-latest;
-      profiles."default".isDefault = true;
-    };
+    # https://github.com/nix-community/home-manager/issues/6800
+    # thunderbird = {
+    #   enable = true;
+    #   package = pkgs.thunderbird-latest;
+    #   profiles."default".isDefault = true;
+    # };
     zathura = {
       enable = true;
       options = {

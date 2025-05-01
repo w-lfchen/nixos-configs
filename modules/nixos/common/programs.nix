@@ -8,6 +8,7 @@
     librewolf
     obsidian
     signal-desktop
+    thunderbird-latest
     vesktop
     vlc
     xournalpp
