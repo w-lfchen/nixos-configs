@@ -4,7 +4,7 @@
   home.activation = {
     # TODO: is there a better way to do this?
     # this creates ~/.librewolf/native-messaging-hosts/, keepassxc's browser extension needs it
-    librewolf-dir-creation = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    createLibrewolfDirs = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       run mkdir -p ~/.librewolf/native-messaging-hosts/
     '';
   };
