@@ -24,7 +24,7 @@
 
   nixpkgs = {
     config.allowUnfree = false;
-    overlays = [ inputs.eww.overlays.default ];
+    overlays = [ inputs.eww.overlays.default inputs.nh.overlays.default ];
   };
 
   programs.nh.enable = true;

@@ -25,11 +25,17 @@
     };
 
     lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
       inputs = {
         flake-utils.follows = "flake-utils";
         nixpkgs.follows = "nixpkgs";
       };
+    };
+
+    # https://github.com/NixOS/nixpkgs/pull/403110
+    nh = {
+      url = "github:nix-community/nh/v4.0.3";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-vscode-extensions = {
@@ -73,6 +79,7 @@
       catppuccin,
       eww,
       lix-module,
+      nh,
       nix-vscode-extensions,
       scripts-flake,
       private-configs,
