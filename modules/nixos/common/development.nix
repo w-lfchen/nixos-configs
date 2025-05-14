@@ -1,4 +1,6 @@
-_: {
+{ pkgs, ... }:
+{
+  environment.systemPackges = with pkgs; [ sshuttle ];
   services.postgresql = {
     enable = true;
   };
