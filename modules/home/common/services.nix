@@ -36,9 +36,11 @@
     };
     mako = {
       enable = true;
-      borderRadius = 6;
-      borderSize = 3;
-      defaultTimeout = 5000;
+      settings = {
+        border-radius = 6;
+        border-size = 3;
+        default-timeout = 5000;
+      };
     };
   };
 }
