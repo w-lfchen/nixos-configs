@@ -32,12 +32,6 @@
       };
     };
 
-    # https://github.com/NixOS/nixpkgs/pull/403110
-    nh = {
-      url = "github:nix-community/nh/v4.0.3";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs = {
@@ -79,7 +73,6 @@
       catppuccin,
       eww,
       lix-module,
-      nh,
       nix-vscode-extensions,
       scripts-flake,
       private-configs,

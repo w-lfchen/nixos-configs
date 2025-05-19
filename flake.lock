@@ -135,27 +135,6 @@
         "url": "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz"
       }
     },
-    "nh": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1746032033,
-        "narHash": "sha256-BCD0tfDNlQHFM75THRtXM3GegMg/KbREsYllg7Az9ao=",
-        "owner": "nix-community",
-        "repo": "nh",
-        "rev": "894bb7ebf3adb58f76d1f7d9f6b33f58758d40f0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "ref": "v4.0.3",
-        "repo": "nh",
-        "type": "github"
-      }
-    },
     "nix-vscode-extensions": {
       "inputs": {
         "flake-utils": [
@@ -217,7 +196,6 @@
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "lix-module": "lix-module",
-        "nh": "nh",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs",
         "private-configs": "private-configs",
