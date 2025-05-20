@@ -150,6 +150,10 @@
         preserve_split = true;
         pseudotile = true;
       };
+      ecosystem = {
+        no_donation_nag = true;
+        no_update_news = true;
+      };
       env = [ "XCURSOR_SIZE,24" ];
       exec = [ "playerctld daemon" ];
       general = {
