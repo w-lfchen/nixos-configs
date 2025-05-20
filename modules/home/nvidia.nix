@@ -1,12 +1,5 @@
 # hm module for nvidia on hyprland
 _: {
-  nixpkgs.overlays = [
-    (final: prev: {
-      # can't call `codium <path>` anymore because dumb application
-      vscodium = prev.vscodium.override { commandLineArgs = "--disable-gpu-compositing"; };
-    })
-  ];
-
   wayland.windowManager.hyprland.settings = {
     cursor.no_hardware_cursors = true;
     # librewolf freezing could be an issue, see https://github.com/hyprwm/Hyprland/issues/7327
