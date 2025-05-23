@@ -127,6 +127,10 @@
             private-configs.refuge.configuration
           ];
         };
+        voyage = nixpkgs.lib.nixosSystem {
+          inherit specialArgs system;
+          modules = [ ./hosts/voyage/configuration.nix ];
+        };
       };
 
       # currently using home-manager through a standalone install, this might change in the future
@@ -144,6 +148,10 @@
             ./hosts/refuge/home.nix
             private-configs.refuge.home
           ];
+        };
+        voyage = home-manager.lib.homeManagerConfiguration {
+          inherit extraSpecialArgs pkgs;
+          modules = [ ./hosts/voyage/home.nix ];
         };
       };
 
