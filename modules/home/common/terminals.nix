@@ -31,6 +31,7 @@ _: {
     btop.enable = true;
     fzf.enable = true;
     yazi.enable = true;
+    zellij.enable = true;
   };
   programs = {
     bat.enable = true;
@@ -55,6 +56,15 @@ _: {
       enableFishIntegration = true;
       enableNushellIntegration = true;
       enableZshIntegration = true;
+    };
+    zellij = {
+      enable = true;
+      settings = {
+        copy_on_select = false;
+        ui.pane_frames.rounded_corners = true;
+        show_startup_tips = false;
+        show_release_notes = false;
+      };
     };
     zoxide.enable = true;
   };
