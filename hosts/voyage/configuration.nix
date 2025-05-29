@@ -20,7 +20,10 @@
   environment.systemPackages = with pkgs; [ brightnessctl ];
 
   # shared wired connection
-  networking.firewall.interfaces."enp3s0f0".allowedUDPPorts = [ 53 67 ];
+  networking.firewall.interfaces."enp3s0f0".allowedUDPPorts = [
+    53
+    67
+  ];
 
   security.pam.services.swaylock = { };
 }
