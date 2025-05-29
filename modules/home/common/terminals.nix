@@ -62,6 +62,8 @@ _: {
       settings = {
         copy_on_select = false;
         ui.pane_frames.rounded_corners = true;
+        show_startup_tips = false;
+        show_release_notes = false;
       };
     };
     zoxide.enable = true;
