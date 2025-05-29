@@ -11,7 +11,6 @@
     slack
     thunderbird-latest
     vesktop
-    vlc
     xournalpp
     zotero
   ];
