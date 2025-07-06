@@ -60,7 +60,8 @@ _: {
     zellij = {
       enable = true;
       settings = {
-        copy_on_select = false;
+        copy_command = "wl-copy";
+        copy_on_select = true;
         ui.pane_frames.rounded_corners = true;
         show_startup_tips = false;
         show_release_notes = false;
