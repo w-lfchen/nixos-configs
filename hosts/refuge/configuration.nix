@@ -3,6 +3,7 @@
   imports = [
     modules.nixos.default
     modules.nixos.nvidia
+    modules.nixos.shared-ethernet
   ];
 
   networking.hostName = "refuge";
@@ -20,6 +21,11 @@
   # other host specific config
   environment.systemPackages = with pkgs; [ davinci-resolve ];
   unfree.allowedPackages = [ "davinci-resolve" ];
+
+  networking.shared-ethernet = {
+    enable = true;
+    interfaces = [ "enp7s0" ];
+  };
 
   programs.coolercontrol = {
     enable = true;
