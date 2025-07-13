@@ -88,8 +88,9 @@
         # extend nixpks lib with own lib
         overlays = [ (final: prev: { lib = prev.lib // import ./lib prev; }) ];
       };
+      lib = pkgs.lib;
 
-      modules = pkgs.lib.dirToSet ./modules;
+      modules = lib.dirToSet ./modules;
       # relative paths in the config directory
       paths = {
         config = ./config;
@@ -102,13 +103,19 @@
       specialArgs = {
         inherit
           inputs
+          lib
           modules
           paths
           scripts
           ;
       };
       extraSpecialArgs = {
-        inherit inputs modules paths;
+        inherit
+          inputs
+          lib
+          modules
+          paths
+          ;
       };
     in
     {

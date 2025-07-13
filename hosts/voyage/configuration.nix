@@ -2,6 +2,7 @@
 {
   imports = [
     modules.nixos.default
+    modules.nixos.shared-ethernet
     modules.nixos.vpn
   ];
 
@@ -19,11 +20,10 @@
 
   environment.systemPackages = with pkgs; [ brightnessctl ];
 
-  # shared wired connection
-  networking.firewall.interfaces."enp3s0f0".allowedUDPPorts = [
-    53
-    67
-  ];
+  networking.shared-ethernet = {
+    enable = true;
+    interfaces = [ "enp3s0f0" ];
+  };
 
   security.pam.services.swaylock = { };
 }
