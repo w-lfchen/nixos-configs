@@ -109,14 +109,7 @@
           scripts
           ;
       };
-      extraSpecialArgs = {
-        inherit
-          inputs
-          lib
-          modules
-          paths
-          ;
-      };
+      extraSpecialArgs = { inherit inputs modules paths; };
     in
     {
       nixosConfigurations = {
