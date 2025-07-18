@@ -57,6 +57,7 @@
         jnoortheen.nix-ide
         justusadam.language-haskell
         leonardssh.vscord
+        llvm-vs-code-extensions.vscode-clangd
         marp-team.marp-vscode
         ms-vscode.hexeditor
         myriad-dreamin.tinymist
