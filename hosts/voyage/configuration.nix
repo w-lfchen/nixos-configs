@@ -3,7 +3,6 @@
   imports = [
     modules.nixos.default
     modules.nixos.shared-ethernet
-    modules.nixos.vpn
   ];
 
   networking.hostName = "voyage";

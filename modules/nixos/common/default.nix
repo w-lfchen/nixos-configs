@@ -14,6 +14,7 @@
     ./security.nix
     ./shells.nix
     ./users.nix
+    ./vpn.nix
     ./wm.nix
   ];
 

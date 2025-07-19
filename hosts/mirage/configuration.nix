@@ -1,9 +1,6 @@
 { modules, pkgs, ... }:
 {
-  imports = [
-    modules.nixos.default
-    modules.nixos.vpn
-  ];
+  imports = [ modules.nixos.default ];
 
   networking.hostName = "mirage";
   system.stateVersion = "23.05"; # don't change this value
