@@ -5,11 +5,7 @@ _: {
     # librewolf freezing could be an issue, see https://github.com/hyprwm/Hyprland/issues/7327
     # see https://github.com/hyprwm/Hyprland/issues/4857
     # issues to keep in mind: https://github.com/hyprwm/Hyprland/issues/7560 https://github.com/hyprwm/Hyprland/issues/7205
-    render = {
-      explicit_sync = 1;
-      explicit_sync_kms = 1;
-      direct_scanout = false;
-    };
+    render.direct_scanout = false;
     # fixes
     # https://github.com/Rdeisenroth/dotfiles/blob/c3c02c9ee95d99883dfe09c5fb64195abae89a6f/dot_config/hypr/environment.conf
     # thank you ruben for making the nvidia wayland journey a bit less painful <3
