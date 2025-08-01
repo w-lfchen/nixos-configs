@@ -1,4 +1,4 @@
-{ modules, pkgs, ... }:
+{ modules, ... }:
 {
   imports = [
     modules.nixos.default
