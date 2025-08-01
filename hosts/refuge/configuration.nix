@@ -19,9 +19,6 @@
   ];
 
   # other host specific config
-  environment.systemPackages = with pkgs; [ davinci-resolve ];
-  unfree.allowedPackages = [ "davinci-resolve" ];
-
   networking.shared-ethernet = {
     enable = true;
     interfaces = [ "enp7s0" ];
