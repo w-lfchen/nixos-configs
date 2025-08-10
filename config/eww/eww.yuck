@@ -59,7 +59,7 @@
   :initial ""
   :interval "1s"
   :run-while {bluetooth-unblocked}
-  "bluetoothctl devices Connected | cut -b 26-"
+  "bluetoothctl devices Connected | grep Device -m 1 | cut -b 26-"
 )
 
 (defpoll brightness-current
