@@ -1,17 +1,23 @@
 { pkgs, ... }:
 {
-  catppuccin.gtk = {
-    enable = true;
-    icon.enable = true;
-    size = "compact";
-    tweaks = [ "rimless" ];
-  };
+  catppuccin.gtk.icon.enable = true;
 
   gtk = {
     enable = true;
     font = {
       name = "Roboto Condensed";
       size = 10;
+    };
+    theme = {
+      name = "Catppuccin-GTK-Purple-Dark";
+      package = pkgs.magnetic-catppuccin-gtk.override {
+        accent = [ "purple" ];
+        tweaks = [
+          "float"
+          "macos"
+          "outline"
+        ];
+      };
     };
   };
 
