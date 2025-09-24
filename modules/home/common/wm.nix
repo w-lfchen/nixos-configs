@@ -165,9 +165,6 @@
         layout = "dwindle";
         resize_on_border = true;
       };
-      gestures = {
-        workspace_swipe = false;
-      };
       input = {
         kb_layout = "de";
         follow_mouse = 1;
