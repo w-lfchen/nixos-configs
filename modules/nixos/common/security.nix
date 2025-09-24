@@ -30,7 +30,7 @@
       settings = {
         default_session = {
           command = lib.concatStringsSep " " [
-            (lib.getExe pkgs.greetd.tuigreet)
+            (lib.getExe pkgs.tuigreet)
             "--asterisks"
             "--greeting 'Access is restricted to authorised personnel only.'"
             "--remember"
