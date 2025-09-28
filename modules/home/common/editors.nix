@@ -1,10 +1,5 @@
 { inputs, pkgs, ... }:
 {
-  programs.eclipse = {
-    enable = true;
-    package = pkgs.eclipses.eclipse-java;
-  };
-
   # helix
   catppuccin.helix = {
     enable = true;
