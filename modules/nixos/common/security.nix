@@ -3,7 +3,6 @@
   environment.systemPackages = with pkgs; [
     gnupg1
     keepassxc
-    pinentry
   ];
 
   programs = {
