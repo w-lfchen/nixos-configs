@@ -24,10 +24,7 @@
     interfaces = [ "enp7s0" ];
   };
 
-  programs.coolercontrol = {
-    enable = true;
-    nvidiaSupport = true;
-  };
+  programs.coolercontrol.enable = true;
 
   security.pam.services.swaylock = { };
 
