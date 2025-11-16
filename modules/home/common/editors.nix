@@ -43,10 +43,7 @@
       extensions = with pkgs.vscode-marketplace; [
         catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
-        dbaeumer.vscode-eslint
-        dsvictor94.promela
         eww-yuck.yuck
-        esbenp.prettier-vscode
         haskell.haskell
         james-yu.latex-workshop
         jnoortheen.nix-ide
@@ -58,7 +55,6 @@
         myriad-dreamin.tinymist
         rust-lang.rust-analyzer
         tamasfe.even-better-toml
-        yoavbls.pretty-ts-errors
       ];
       # https://github.com/microsoft/vscode/issues/188624#issuecomment-1652888196
       userSettings = {
