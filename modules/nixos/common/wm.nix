@@ -1,4 +1,4 @@
-{ pkgs, scripts, ... }:
+{ inputs, pkgs, ... }:
 {
   # wm stuff
   programs.hyprland.enable = true;
@@ -8,7 +8,7 @@
     swaybg
     wl-clipboard
 
-    scripts.eww-helper
+    inputs.scripts-flake.packages.${stdenv.hostPlatform.system}.eww-helper
 
     (writeShellScriptBin "screenshot" ''
       sleep $1; ${grim}/bin/grim -g "$(${slurp}/bin/slurp)" - | magick - -shave 1x1 PNG:- | ${swappy}/bin/swappy -f -
