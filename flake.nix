@@ -118,21 +118,21 @@
     {
       nixosConfigurations = {
         mirage = nixpkgs.lib.nixosSystem {
-          inherit specialArgs system;
+          inherit specialArgs;
           modules = [
             ./hosts/mirage/configuration.nix
             private-configs.mirage.configuration
           ];
         };
         refuge = nixpkgs.lib.nixosSystem {
-          inherit specialArgs system;
+          inherit specialArgs;
           modules = [
             ./hosts/refuge/configuration.nix
             private-configs.refuge.configuration
           ];
         };
         voyage = nixpkgs.lib.nixosSystem {
-          inherit specialArgs system;
+          inherit specialArgs;
           modules = [ ./hosts/voyage/configuration.nix ];
         };
       };
