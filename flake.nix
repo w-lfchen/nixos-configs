@@ -102,15 +102,12 @@
         wallpapers = ./wallpapers;
       };
 
-      scripts = scripts-flake.packages.${system};
-
       specialArgs = {
         inherit
           inputs
           lib
           modules
           paths
-          scripts
           ;
       };
       extraSpecialArgs = { inherit inputs modules paths; };
