@@ -1,4 +1,4 @@
-{ modules, paths, ... }:
+{ config, modules, ... }:
 {
   imports = [
     modules.home.default
@@ -15,7 +15,7 @@
       #",preferred,auto,1,mirror,eDP-1"
     ];
     exec = [
-      "pkill swaybg; swaybg -i ${paths.wallpapers}/mirage/wallpaper.png"
+      "pkill swaybg; swaybg -i ${config.xdg.userDirs.pictures}/wallpapers/mirage/wallpaper.png"
       "pkill eww; eww o bar"
     ];
   };

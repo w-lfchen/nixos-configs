@@ -99,7 +99,6 @@
       paths = {
         config = ./config;
         patches = ./patches;
-        wallpapers = ./wallpapers;
       };
 
       specialArgs = {
