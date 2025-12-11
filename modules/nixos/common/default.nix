@@ -25,6 +25,10 @@
   };
 
   # misc sys stuff
+  hardware.keyboard.qmk = {
+    enable = true;
+    keychronSupport = true;
+  };
   services.fwupd.enable = true;
   programs.ccache.enable = true;
 }
