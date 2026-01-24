@@ -1,6 +1,6 @@
 {
+  inputs,
   lib,
-  paths,
   pkgs,
   ...
 }:
@@ -15,13 +15,22 @@
         device = "nodev";
         efiSupport = true;
         splashImage = lib.mkForce null;
-        theme = lib.mkForce (
-          pkgs.catppuccin-grub.overrideAttrs { patches = [ "${paths.patches}/grub-theme.patch" ]; }
-        );
         useOSProber = false;
       };
     };
   };
 
-  catppuccin.grub.enable = true;
+  catppuccin = {
+    sources.grub = inputs.catppuccin.packages.${pkgs.stdenv.hostPlatform.system}.buildCatppuccinPort {
+      port = "grub";
+      src = inputs.catppuccin-grub;
+      # source: https://github.com/catppuccin/nix/blob/deb2a5a54cf9e05ddf60aeeb933f60ad2fac20e1/pkgs/grub/package.nix
+      dontCatppuccinInstall = true;
+      postInstall = ''
+        mkdir -p $out/share/grub
+        mv src $out/share/grub/themes
+      '';
+    };
+    grub.enable = true;
+  };
 }

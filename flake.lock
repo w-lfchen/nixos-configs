@@ -20,6 +20,22 @@
         "type": "github"
       }
     },
+    "catppuccin-grub": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1769270365,
+        "narHash": "sha256-WTBogCgWQQd6s89yLvcN+mauxbreS23z3M6G/4IyfwA=",
+        "owner": "w-lfchen",
+        "repo": "catppuccin-grub",
+        "rev": "e6a2ecc02af6c51251bb322aace323c3f0171b29",
+        "type": "github"
+      },
+      "original": {
+        "owner": "w-lfchen",
+        "repo": "catppuccin-grub",
+        "type": "github"
+      }
+    },
     "eww": {
       "inputs": {
         "flake-compat": [],
@@ -191,6 +207,7 @@
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
+        "catppuccin-grub": "catppuccin-grub",
         "eww": "eww",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",

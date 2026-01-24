@@ -14,6 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    catppuccin-grub = {
+      url = "github:w-lfchen/catppuccin-grub";
+      flake = false;
+    };
+
     eww = {
       # see https://github.com/elkowar/eww/pull/1217
       url = "github:w-lfchen/eww/feat/updates";
@@ -74,6 +79,7 @@
       nixpkgs,
       home-manager,
       catppuccin,
+      catppuccin-grub,
       eww,
       lix,
       lix-module,
@@ -95,21 +101,9 @@
       lib = pkgs.lib;
 
       modules = lib.dirToSet ./modules;
-      # relative paths in the config directory
-      paths = {
-        config = ./config;
-        patches = ./patches;
-      };
 
-      specialArgs = {
-        inherit
-          inputs
-          lib
-          modules
-          paths
-          ;
-      };
-      extraSpecialArgs = { inherit inputs modules paths; };
+      specialArgs = { inherit inputs lib modules; };
+      extraSpecialArgs = { inherit inputs modules; };
     in
     {
       nixosConfigurations = {
