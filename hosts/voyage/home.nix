@@ -1,13 +1,11 @@
 { config, modules, ... }:
 {
-  imports = [
-    modules.home.default
-    modules.home.wlogout
-  ];
+  imports = [ modules.home.default ];
 
   home.stateVersion = "24.11"; # don't change this value
 
   # host specific config
+  programs.wlogout.enable = true;
   wayland.windowManager.hyprland.settings = {
     monitor = [
       "eDP-1,highres,0x0,1"

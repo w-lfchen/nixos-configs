@@ -3,12 +3,12 @@
   imports = [
     modules.home.default
     modules.home.nvidia
-    modules.home.obs
   ];
 
   home.stateVersion = "23.05"; # don't change this value
 
   # host specific config
+  programs.obs-studio.enable = true;
   wayland.windowManager.hyprland.settings = {
     monitor = [
       "DP-2,2560x1440@144,0x0,1"
