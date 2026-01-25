@@ -12,6 +12,7 @@
     ./nix.nix
     ./programs.nix
     ./security.nix
+    ./shared-ethernet.nix
     ./shells.nix
     ./users.nix
     ./vpn.nix

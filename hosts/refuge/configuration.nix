@@ -3,7 +3,6 @@
   imports = [
     modules.nixos.default
     modules.nixos.nvidia
-    modules.nixos.shared-ethernet
   ];
 
   networking.hostName = "refuge";

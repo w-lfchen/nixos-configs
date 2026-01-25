@@ -2,7 +2,6 @@
 {
   imports = [
     modules.nixos.default
-    modules.nixos.shared-ethernet
   ];
 
   networking.hostName = "voyage";
