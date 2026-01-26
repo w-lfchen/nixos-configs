@@ -4,6 +4,7 @@
     inputs.catppuccin.homeModules.catppuccin
     ./editors.nix
     ./gtk.nix
+    ./nvidia.nix
     ./programs.nix
     ./services.nix
     ./spotify.nix

@@ -1,13 +1,11 @@
 { config, modules, ... }:
 {
-  imports = [
-    modules.home.default
-    modules.home.nvidia
-  ];
+  imports = [ modules.home.default ];
 
   home.stateVersion = "23.05"; # don't change this value
 
   # host specific config
+  hardware.nvidia.enable = true;
   programs.obs-studio.enable = true;
   wayland.windowManager.hyprland.settings = {
     monitor = [

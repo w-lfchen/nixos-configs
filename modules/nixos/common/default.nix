@@ -10,6 +10,7 @@
     ./locale.nix
     ./networking.nix
     ./nix.nix
+    ./nvidia.nix
     ./programs.nix
     ./security.nix
     ./shared-ethernet.nix
