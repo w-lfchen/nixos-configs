@@ -93,14 +93,8 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        # extend nixpks lib with own lib
-        overlays = [ (final: prev: { lib = prev.lib // import ./lib prev; }) ];
-      };
-      lib = pkgs.lib;
-
-      specialArgs = { inherit inputs lib; };
+      pkgs = nixpkgs.legacyPackages.${system};
+      specialArgs = { inherit inputs; };
       extraSpecialArgs = { inherit inputs; };
     in
     {
