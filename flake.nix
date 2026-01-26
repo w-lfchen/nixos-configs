@@ -100,16 +100,15 @@
       };
       lib = pkgs.lib;
 
-      modules = lib.dirToSet ./modules;
-
-      specialArgs = { inherit inputs lib modules; };
-      extraSpecialArgs = { inherit inputs modules; };
+      specialArgs = { inherit inputs lib; };
+      extraSpecialArgs = { inherit inputs; };
     in
     {
       nixosConfigurations = {
         mirage = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           modules = [
+            ./modules/nixos
             ./hosts/mirage/configuration.nix
             private-configs.mirage.configuration
           ];
@@ -117,13 +116,17 @@
         refuge = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           modules = [
+            ./modules/nixos
             ./hosts/refuge/configuration.nix
             private-configs.refuge.configuration
           ];
         };
         voyage = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
-          modules = [ ./hosts/voyage/configuration.nix ];
+          modules = [
+            ./modules/nixos
+            ./hosts/voyage/configuration.nix
+          ];
         };
       };
 
@@ -132,6 +135,7 @@
         mirage = home-manager.lib.homeManagerConfiguration {
           inherit extraSpecialArgs pkgs;
           modules = [
+            ./modules/home
             ./hosts/mirage/home.nix
             private-configs.mirage.home
           ];
@@ -139,13 +143,17 @@
         refuge = home-manager.lib.homeManagerConfiguration {
           inherit extraSpecialArgs pkgs;
           modules = [
+            ./modules/home
             ./hosts/refuge/home.nix
             private-configs.refuge.home
           ];
         };
         voyage = home-manager.lib.homeManagerConfiguration {
           inherit extraSpecialArgs pkgs;
-          modules = [ ./hosts/voyage/home.nix ];
+          modules = [
+            ./modules/home
+            ./hosts/voyage/home.nix
+          ];
         };
       };
 

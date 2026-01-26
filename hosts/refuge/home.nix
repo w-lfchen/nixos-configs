@@ -1,7 +1,5 @@
-{ config, modules, ... }:
+{ config, ... }:
 {
-  imports = [ modules.home.default ];
-
   home.stateVersion = "23.05"; # don't change this value
 
   # host specific config

@@ -1,7 +1,4 @@
-{ modules, ... }:
-{
-  imports = [ modules.nixos.default ];
-
+_: {
   networking.hostName = "refuge";
   system.stateVersion = "23.05"; # don't change this value
 
