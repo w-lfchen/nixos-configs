@@ -1,31 +1,39 @@
 # nixos module for nvidia on wayland
-{ config, ... }:
+{ config, lib, ... }:
+let
+  cfg = config.hardware.nvidia;
+in
 {
-  environment.sessionVariables = {
-    "NIXOS_OZONE_WL" = "1";
-  };
+  # hardware.nvidia.enabled is read-only, add a settable option for it
+  options.hardware.nvidia.enable = lib.mkEnableOption "nvidia";
 
-  unfree.allowedPackages = [
-    "nvidia-settings"
-    "nvidia-x11"
-  ];
-
-  hardware = {
-    graphics = {
-      enable = true;
-      enable32Bit = true;
+  config = lib.mkIf cfg.enable {
+    environment.sessionVariables = {
+      "NIXOS_OZONE_WL" = "1";
     };
-    nvidia = {
-      modesetting.enable = true;
-      nvidiaSettings = true;
-      open = false;
-      package = config.boot.kernelPackages.nvidiaPackages.latest;
-      powerManagement = {
-        enable = false;
-        finegrained = false;
+
+    unfree.allowedPackages = [
+      "nvidia-settings"
+      "nvidia-x11"
+    ];
+
+    hardware = {
+      graphics = {
+        enable = true;
+        enable32Bit = true;
+      };
+      nvidia = {
+        modesetting.enable = true;
+        nvidiaSettings = true;
+        open = false;
+        package = config.boot.kernelPackages.nvidiaPackages.latest;
+        powerManagement = {
+          enable = false;
+          finegrained = false;
+        };
       };
     };
-  };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+    services.xserver.videoDrivers = [ "nvidia" ];
+  };
 }

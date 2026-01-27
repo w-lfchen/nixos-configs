@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   # librewolf/firefox thing
   home.activation = {
@@ -21,6 +21,7 @@
     #   package = pkgs.thunderbird-latest;
     #   profiles."default".isDefault = true;
     # };
+    obs-studio.plugins = [ pkgs.obs-studio-plugins.wlrobs ];
     zathura = {
       enable = true;
       options = {

@@ -38,6 +38,58 @@
         drun-launch = true;
       };
     };
+    # not really happy with this but it's enough for now.
+    # maybe use rofi or eww instead
+    wlogout = {
+      layout = [
+        {
+          action = "systemctl poweroff";
+          keybind = "h";
+          label = "shutdown";
+          text = "";
+        }
+        {
+          action = "systemctl reboot";
+          keybind = "r";
+          label = "reboot";
+          text = "";
+        }
+        {
+          action = "systemctl suspend";
+          keybind = "u";
+          label = "suspend";
+          text = "";
+        }
+      ];
+      style = ''
+        * {
+          background-image: none;
+          box-shadow: none;
+          font-size: 100px;
+          font-family: FiraCode Nerd Font Propo;
+        }
+
+        window {
+          background-color: rgba(17, 17, 27, 0.8);
+        }
+
+        button {
+          background-color: #313244;
+          margin: 50px;
+          margin-left: 600px;
+          margin-right: 600px;
+          text-decoration-color: #cdd6f4;
+          color: #cdd6f4;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 25%;
+        }
+
+        button:focus, button:active {
+          background-color: #45475a;
+        }
+      '';
+    };
   };
   # https://github.com/philj56/tofi/issues/115#issuecomment-1950273960
   home.activation.regenerateTofiCache = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
@@ -65,31 +117,30 @@
         ];
       };
 
-      bind =
-        [
-          "$mainMod, return, exec, kitty"
-          "$mainMod, C, killactive, "
-          "$mainMod, M, exit, "
-          "$mainMod, E, exec, dolphin"
-          "$mainMod, V, togglefloating, "
-          "$mainMod, R, exec, tofi-drun"
-          "$mainMod, P, pseudo, # dwindle"
-          "$mainMod, J, togglesplit, # dwindle"
-          "$mainMod, F, fullscreen, 0"
-          "$mainMod SHIFT, Q, exec, wlogout --buttons-per-row 1"
+      bind = [
+        "$mainMod, return, exec, kitty"
+        "$mainMod, C, killactive, "
+        "$mainMod, M, exit, "
+        "$mainMod, E, exec, dolphin"
+        "$mainMod, V, togglefloating, "
+        "$mainMod, R, exec, tofi-drun"
+        "$mainMod, P, pseudo, # dwindle"
+        "$mainMod, J, togglesplit, # dwindle"
+        "$mainMod, F, fullscreen, 0"
+        "$mainMod SHIFT, Q, exec, wlogout --buttons-per-row 1"
 
-          "$mainMod, left, movefocus, l"
-          "$mainMod, right, movefocus, r"
-          "$mainMod, up, movefocus, u"
-          "$mainMod, down, movefocus, d"
+        "$mainMod, left, movefocus, l"
+        "$mainMod, right, movefocus, r"
+        "$mainMod, up, movefocus, u"
+        "$mainMod, down, movefocus, d"
 
-          "$mainMod, mouse_down, workspace, e+1"
-          "$mainMod, mouse_up, workspace, e-1"
+        "$mainMod, mouse_down, workspace, e+1"
+        "$mainMod, mouse_up, workspace, e-1"
 
-          "$mainMod CTRL, left, movecurrentworkspacetomonitor, l"
-          "$mainMod CTRL, right, movecurrentworkspacetomonitor, r"
-        ]
-        ++
+        "$mainMod CTRL, left, movecurrentworkspacetomonitor, l"
+        "$mainMod CTRL, right, movecurrentworkspacetomonitor, r"
+      ]
+      ++
         # https://wiki.hyprland.org/Nix/Hyprland-on-Home-Manager/
         # workspaces
         # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}

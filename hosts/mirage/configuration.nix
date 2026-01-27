@@ -1,7 +1,5 @@
-{ modules, pkgs, ... }:
+{ pkgs, ... }:
 {
-  imports = [ modules.nixos.default ];
-
   networking.hostName = "mirage";
   system.stateVersion = "23.05"; # don't change this value
 

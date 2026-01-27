@@ -1,10 +1,5 @@
-{ modules, pkgs, ... }:
+{ pkgs, ... }:
 {
-  imports = [
-    modules.nixos.default
-    modules.nixos.shared-ethernet
-  ];
-
   networking.hostName = "voyage";
   system.stateVersion = "24.11"; # don't change this value
 

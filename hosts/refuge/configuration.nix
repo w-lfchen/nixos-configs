@@ -1,11 +1,4 @@
-{ modules, ... }:
-{
-  imports = [
-    modules.nixos.default
-    modules.nixos.nvidia
-    modules.nixos.shared-ethernet
-  ];
-
+_: {
   networking.hostName = "refuge";
   system.stateVersion = "23.05"; # don't change this value
 
@@ -19,6 +12,7 @@
   ];
 
   # other host specific config
+  hardware.nvidia.enable = true;
   networking.shared-ethernet = {
     enable = true;
     interfaces = [ "enp7s0" ];

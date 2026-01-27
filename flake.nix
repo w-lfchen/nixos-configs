@@ -14,6 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    catppuccin-grub = {
+      url = "github:w-lfchen/catppuccin-grub";
+      flake = false;
+    };
+
     eww = {
       # see https://github.com/elkowar/eww/pull/1217
       url = "github:w-lfchen/eww/feat/updates";
@@ -74,6 +79,7 @@
       nixpkgs,
       home-manager,
       catppuccin,
+      catppuccin-grub,
       eww,
       lix,
       lix-module,
@@ -87,53 +93,34 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        # extend nixpks lib with own lib
-        overlays = [ (final: prev: { lib = prev.lib // import ./lib prev; }) ];
-      };
-      lib = pkgs.lib;
-
-      modules = lib.dirToSet ./modules;
-      # relative paths in the config directory
-      paths = {
-        config = ./config;
-        patches = ./patches;
-        wallpapers = ./wallpapers;
-      };
-
-      scripts = scripts-flake.packages.${system};
-
-      specialArgs = {
-        inherit
-          inputs
-          lib
-          modules
-          paths
-          scripts
-          ;
-      };
-      extraSpecialArgs = { inherit inputs modules paths; };
+      pkgs = nixpkgs.legacyPackages.${system};
+      specialArgs = { inherit inputs; };
+      extraSpecialArgs = { inherit inputs; };
     in
     {
       nixosConfigurations = {
         mirage = nixpkgs.lib.nixosSystem {
-          inherit specialArgs system;
+          inherit specialArgs;
           modules = [
+            ./modules/nixos
             ./hosts/mirage/configuration.nix
             private-configs.mirage.configuration
           ];
         };
         refuge = nixpkgs.lib.nixosSystem {
-          inherit specialArgs system;
+          inherit specialArgs;
           modules = [
+            ./modules/nixos
             ./hosts/refuge/configuration.nix
             private-configs.refuge.configuration
           ];
         };
         voyage = nixpkgs.lib.nixosSystem {
-          inherit specialArgs system;
-          modules = [ ./hosts/voyage/configuration.nix ];
+          inherit specialArgs;
+          modules = [
+            ./modules/nixos
+            ./hosts/voyage/configuration.nix
+          ];
         };
       };
 
@@ -142,6 +129,7 @@
         mirage = home-manager.lib.homeManagerConfiguration {
           inherit extraSpecialArgs pkgs;
           modules = [
+            ./modules/home
             ./hosts/mirage/home.nix
             private-configs.mirage.home
           ];
@@ -149,13 +137,17 @@
         refuge = home-manager.lib.homeManagerConfiguration {
           inherit extraSpecialArgs pkgs;
           modules = [
+            ./modules/home
             ./hosts/refuge/home.nix
             private-configs.refuge.home
           ];
         };
         voyage = home-manager.lib.homeManagerConfiguration {
           inherit extraSpecialArgs pkgs;
-          modules = [ ./hosts/voyage/home.nix ];
+          modules = [
+            ./modules/home
+            ./hosts/voyage/home.nix
+          ];
         };
       };
 

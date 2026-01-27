@@ -1,4 +1,4 @@
-{ paths, pkgs, ... }:
+{ config, pkgs, ... }:
 {
   catppuccin.swaylock.enable = true;
 
@@ -6,8 +6,7 @@
     enable = true;
     package = pkgs.swaylock-effects;
     settings = {
-      # use this instead of `builtins.toString wallpapers + "/refuge/line-crust.png"` in order to not rebuild upon whitespace change
-      image = "${paths.wallpapers}/refuge/line-crust.png";
+      image = "${config.xdg.userDirs.pictures}/wallpapers/refuge/line-crust.png";
       clock = true;
       daemonize = true;
       effect-blur = "3x5";
