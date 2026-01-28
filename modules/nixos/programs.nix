@@ -4,7 +4,7 @@
     discord
     element-desktop
     gimp
-    jetbrains.idea-ultimate
+    jetbrains.idea
     librewolf
     obsidian
     signal-desktop
@@ -17,7 +17,7 @@
 
   unfree.allowedPackages = [
     "discord"
-    "idea-ultimate"
+    "idea"
     "obsidian"
     "slack"
   ];
