@@ -10,8 +10,10 @@
   services.blueman.enable = true;
 
   # communicate with android devices
-  environment.systemPackages = with pkgs; [ scrcpy ];
-  programs.adb.enable = true;
+  environment.systemPackages = with pkgs; [
+    android-tools
+    scrcpy
+  ];
 
   # misc
   systemd.services.NetworkManager-wait-online.enable = false;
