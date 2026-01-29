@@ -224,8 +224,8 @@
         };
       };
       layerrule = [
-        #"blur, gtk-layer-shell"
-        "blur, logout_dialog"
+        #"blur true, match:namespace gtk-layer-shell"
+        "blur true, match:namespace logout_dialog"
       ];
       misc = {
         background_color = "rgb(000000)";
@@ -233,23 +233,6 @@
         disable_splash_rendering = true;
         enable_anr_dialog = false;
       };
-      # fixes
-      windowrulev2 = [
-        # don't know whether this is still needed, haven't used intellij in forever luckily
-        # https://github.com/hyprwm/Hyprland/issues/3450#issuecomment-1816761575
-        # -- Fix odd behaviors in IntelliJ IDEs --
-        #! Fix splash screen showing in weird places and prevent annoying focus takeovers
-        "center,class:^(jetbrains-.*)$,title:^(splash)$,floating:1"
-        "nofocus,class:^(jetbrains-.*)$,title:^(splash)$,floating:1"
-        "noborder,class:^(jetbrains-.*)$,title:^(splash)$,floating:1"
-        #! Center popups/find windows
-        "center,class:^(jetbrains-.*)$,title:^( )$,floating:1"
-        "stayfocused,class:^(jetbrains-.*)$,title:^( )$,floating:1"
-        "noborder,class:^(jetbrains-.*)$,title:^( )$,floating:1"
-        #! Disable window flicker when autocomplete or tooltips appear
-        "nofocus,class:^(jetbrains-.*)$,title:^(win.*)$,floating:1"
-        "noinitialfocus,class:^(jetbrains-.*),title:^(win.*)"
-      ];
     };
   };
 }
