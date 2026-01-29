@@ -5,7 +5,6 @@
     ../unfree.nix
     ./audio.nix
     ./boot.nix
-    ./development.nix
     ./fonts.nix
     ./hardware-configuration.nix
     ./locale.nix
