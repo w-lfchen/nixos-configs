@@ -56,6 +56,7 @@ _: {
       enableFishIntegration = true;
       enableNushellIntegration = true;
       enableZshIntegration = true;
+      shellWrapperName = "y";
     };
     zellij = {
       enable = true;
