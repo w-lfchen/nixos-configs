@@ -1,6 +1,7 @@
 { config, lib, ... }:
 {
   # bars and launchers
+  catppuccin.fuzzel.enable = true;
   catppuccin.tofi.enable = true;
   programs = {
     # not managing eww through home-manager
@@ -11,6 +12,23 @@
     #   package = pkgs.eww-wayland;
     #   configDir = ~/nixos-configs/eww;
     # };
+    fuzzel = {
+      enable = true;
+      settings = {
+        border = {
+          radius = 10;
+          width = 2;
+          selection-radius = 4;
+        };
+        main = {
+          dpi-aware = false;
+          font = "FiraCode Nerd Font Propo:size=14";
+          icons-enabled = false;
+          lines = 5;
+          width = 40;
+        };
+      };
+    };
     tofi = {
       enable = true;
       settings = {
