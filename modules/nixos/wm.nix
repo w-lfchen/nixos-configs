@@ -2,11 +2,13 @@
 {
   # wm stuff
   programs.hyprland.enable = true;
+  programs.niri.enable = true;
 
   environment.systemPackages = with pkgs; [
     eww
     swaybg
     wl-clipboard
+    xwayland-satellite
 
     inputs.scripts-flake.packages.${stdenv.hostPlatform.system}.eww-helper
 

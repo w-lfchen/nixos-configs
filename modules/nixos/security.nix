@@ -35,7 +35,7 @@
             "--remember"
             "--remember-user-session"
             "--time"
-            "--cmd Hyprland"
+            "--cmd niri"
           ];
           user = "greeter";
         };

@@ -3,6 +3,8 @@
 .right-bar,
 .bar {
     background-color: rgba(0, 0, 0, 0);
+    background-color: $base;
+    border-bottom: 5px solid $crust;
 }
 
 .bar-button {
@@ -11,12 +13,11 @@
 }
 
 .module-box {
-    background-color: $base;
-    border-radius: 6px;
+    border-radius: 0px;
     padding-left: 10px;
     padding-right: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .ws-button {

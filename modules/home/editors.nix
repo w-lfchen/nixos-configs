@@ -48,6 +48,7 @@
         james-yu.latex-workshop
         jnoortheen.nix-ide
         justusadam.language-haskell
+        kdl-org.kdl
         leonardssh.vscord
         llvm-vs-code-extensions.vscode-clangd
         marp-team.marp-vscode
