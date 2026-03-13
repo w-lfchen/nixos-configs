@@ -208,13 +208,6 @@
       :spacing 10
       :halign "start"
       (menu-launcher)
-      "|"
-      (workspaces)
-      (label
-        :visible {current-window-title != ""}
-        :text "|"
-      )
-      (title)
     )
     ; currently, center modules consist of music only, so move everything there instead
     (music)
