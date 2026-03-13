@@ -22,7 +22,6 @@ _: {
   programs.kitty = {
     enable = true;
     font.name = "FiraCode Nerd Font Reg";
-    settings.background_opacity = "0.4";
   };
 
   # terminal programs
