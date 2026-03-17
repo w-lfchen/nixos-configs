@@ -4,14 +4,6 @@
   catppuccin.fuzzel.enable = true;
   catppuccin.tofi.enable = true;
   programs = {
-    # not managing eww through home-manager
-    # instead created a symlink in .config and added it to systemPackages
-    # that allows reload on save, maybe change this once eww config is done
-    # eww = {
-    #   enable = true;
-    #   package = pkgs.eww-wayland;
-    #   configDir = ~/nixos-configs/eww;
-    # };
     fuzzel = {
       enable = true;
       settings = {
@@ -114,6 +106,10 @@
     tofi_cache=${config.xdg.cacheHome}/tofi-drun
     [[ -f "$tofi_cache" ]] && rm "$tofi_cache"
   '';
+  # link eww configs into config dir
+  # requires the config repo to be located at ~/nixos-configs
+  xdg.configFile."eww".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-configs/config/eww";
 
   # hyprland
   catppuccin.hyprland.enable = true;
