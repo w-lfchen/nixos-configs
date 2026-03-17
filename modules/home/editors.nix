@@ -29,9 +29,6 @@
   nixpkgs.overlays = [ inputs.nix-vscode-extensions.overlays.default ];
   programs.vscode = {
     enable = true;
-    # this module should be removed imo, it's completely outdated and superseded
-    # refer to general vscode config/extensions for haskell setup
-    haskell.enable = false;
     # extensions are allowed to be updated, this should allow this
     # note that this sadly causes eval to take longer, even if only whitespace is adjusted for some reason
     # TODO: test whether this works correctly, if not, set to false
@@ -44,14 +41,10 @@
         catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
         eww-yuck.yuck
-        haskell.haskell
         james-yu.latex-workshop
         jnoortheen.nix-ide
-        justusadam.language-haskell
         kdl-org.kdl
         leonardssh.vscord
-        llvm-vs-code-extensions.vscode-clangd
-        marp-team.marp-vscode
         ms-vscode.hexeditor
         myriad-dreamin.tinymist
         rust-lang.rust-analyzer
