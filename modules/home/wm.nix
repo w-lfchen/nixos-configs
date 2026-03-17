@@ -111,6 +111,12 @@
   xdg.configFile."eww".source =
     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-configs/config/eww";
 
+  # niri
+  # this symlinks the config shared across hosts, each host ist expected to supply their own config.kdl
+  # the config.kdl may reference this file as "default.nix"
+  xdg.configFile."niri/default.kdl".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-configs/config/niri/default.kdl";
+
   # hyprland
   catppuccin.hyprland.enable = true;
   wayland.windowManager.hyprland = {

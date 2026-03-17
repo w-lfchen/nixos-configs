@@ -15,4 +15,6 @@
       "pkill eww; eww o bar"
     ];
   };
+  xdg.configFile."niri/config.kdl".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-configs/config/niri/voyage.kdl";
 }
