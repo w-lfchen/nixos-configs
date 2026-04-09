@@ -1,1 +1,2 @@
 include "default.kdl"
+spawn-at-startup "eww" "o" "bar"

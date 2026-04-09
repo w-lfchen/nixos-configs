@@ -1,1 +1,13 @@
 include "default.kdl"
+spawn-at-startup "eww" "open-many" "left-bar" "right-bar"
+
+output "DP-2" {
+    position x=-2560 y=0
+}
+output "DP-3" {
+    focus-at-startup
+    hot-corners {
+        top-right
+    }
+    position x=0 y=0
+}
