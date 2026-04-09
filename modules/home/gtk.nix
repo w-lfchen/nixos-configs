@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   catppuccin.gtk.icon.enable = true;
 
@@ -8,6 +8,7 @@
       name = "Roboto Condensed";
       size = 10;
     };
+    gtk4.theme = config.gtk.theme;
     theme = {
       name = "Catppuccin-GTK-Mauve-Dark";
       package = pkgs.magnetic-catppuccin-gtk.override {
