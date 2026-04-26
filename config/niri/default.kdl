@@ -110,6 +110,7 @@ input {
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Layout
 layout {
+    background-color "#313244"
     // Set gaps around windows in logical pixels.
     gaps 25
 
@@ -291,10 +292,6 @@ overview {
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
-
-// This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "swaybg" "-c" "313244"
-
 spawn-at-startup "playerctld" "daemon"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
