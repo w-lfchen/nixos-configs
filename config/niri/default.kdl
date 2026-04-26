@@ -269,6 +269,14 @@ layout {
     }
 }
 
+// fuzzel
+layer-rule {
+    match namespace="launcher"
+    shadow {
+        on
+    }
+}
+
 overview {
     backdrop-color "#11111b"
     workspace-shadow {

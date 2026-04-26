@@ -1,16 +1,29 @@
 { config, lib, ... }:
 {
   # bars and launchers
-  catppuccin.fuzzel.enable = true;
   catppuccin.tofi.enable = true;
   programs = {
     fuzzel = {
       enable = true;
       settings = {
         border = {
-          radius = 10;
+          radius = 0;
           width = 2;
-          selection-radius = 4;
+          selection-radius = 0;
+        };
+        # can't use catppuccin.fuzzel since we want to adjust some colors
+        colors = {
+          background = "1e1e2eff";
+          text = "cdd6f4ff";
+          prompt = "bac2deff";
+          placeholder = "7f849cff";
+          input = "cdd6f4ff";
+          match = "cba6f7ff";
+          selection = "585b70ff";
+          selection-text = "cdd6f4ff";
+          selection-match = "cba6f7ff";
+          counter = "7f849cff";
+          border = "cba6f7ff";
         };
         main = {
           dpi-aware = false;
