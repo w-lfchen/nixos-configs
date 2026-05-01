@@ -35,7 +35,7 @@
             "--remember"
             "--remember-user-session"
             "--time"
-            "--cmd niri"
+            "--cmd niri-session"
           ];
           user = "greeter";
         };
