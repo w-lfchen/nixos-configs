@@ -20,6 +20,7 @@
       gnupg.enable = true;
     };
     polkit.enable = true;
+    rtkit.enable = true;
   };
 
   services = {
