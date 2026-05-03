@@ -40,6 +40,7 @@
       enableExtensionUpdateCheck = true;
       enableUpdateCheck = false;
       extensions = with pkgs.vscode-marketplace; [
+        bradlc.vscode-tailwindcss
         catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
         eww-yuck.yuck
