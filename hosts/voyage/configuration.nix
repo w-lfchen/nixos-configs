@@ -18,6 +18,4 @@
     enable = true;
     interfaces = [ "enp3s0f0" ];
   };
-
-  security.pam.services.swaylock = { };
 }

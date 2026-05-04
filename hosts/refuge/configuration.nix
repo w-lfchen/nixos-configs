@@ -20,7 +20,5 @@ _: {
 
   programs.coolercontrol.enable = true;
 
-  security.pam.services.swaylock = { };
-
   services.openssh.enable = true;
 }

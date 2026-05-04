@@ -17,6 +17,10 @@
     '')
   ];
 
+  # pam needs to know about swaylock
+  # make sure it does in case our compositor module doesn't take care of it
+  security.pam.services.swaylock = { };
+
   # misc
   services.xserver.xkb = {
     layout = "de";
