@@ -99,14 +99,6 @@
     in
     {
       nixosConfigurations = {
-        mirage = nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          modules = [
-            ./modules/nixos
-            ./hosts/mirage/configuration.nix
-            private-configs.mirage.configuration
-          ];
-        };
         refuge = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           modules = [
@@ -126,14 +118,6 @@
 
       # currently using home-manager through a standalone install, this might change in the future
       homeConfigurations = {
-        mirage = home-manager.lib.homeManagerConfiguration {
-          inherit extraSpecialArgs pkgs;
-          modules = [
-            ./modules/home
-            ./hosts/mirage/home.nix
-            private-configs.mirage.home
-          ];
-        };
         refuge = home-manager.lib.homeManagerConfiguration {
           inherit extraSpecialArgs pkgs;
           modules = [
