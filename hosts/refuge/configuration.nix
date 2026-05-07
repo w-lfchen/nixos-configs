@@ -12,6 +12,7 @@ _: {
   ];
 
   # other host specific config
+  boot.loader.grub.addWindowsEntry = true;
   hardware.nvidia.enable = true;
   networking.shared-ethernet = {
     enable = true;
