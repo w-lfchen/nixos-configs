@@ -53,10 +53,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # private configuration
-    # CAUTION: this configuration will be world readable in the nix store
-    private-configs.url = "git+ssh://git@github.com/w-lfchen/private-nixos-configs";
-
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs = {
@@ -85,7 +81,6 @@
       lix-module,
       nix-vscode-extensions,
       scripts-flake,
-      private-configs,
       spicetify-nix,
       # not used
       flake-utils,
@@ -104,7 +99,6 @@
           modules = [
             ./modules/nixos
             ./hosts/refuge/configuration.nix
-            private-configs.refuge.configuration
           ];
         };
         voyage = nixpkgs.lib.nixosSystem {
@@ -123,7 +117,6 @@
           modules = [
             ./modules/home
             ./hosts/refuge/home.nix
-            private-configs.refuge.home
           ];
         };
         voyage = home-manager.lib.homeManagerConfiguration {
