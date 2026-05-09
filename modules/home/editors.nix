@@ -29,7 +29,7 @@
 
   # vscode
   nixpkgs.overlays = [ inputs.nix-vscode-extensions.overlays.default ];
-  programs.vscode = {
+  programs.vscodium = {
     enable = true;
     # extensions are allowed to be updated, this should allow this
     # note that this sadly causes eval to take longer, even if only whitespace is adjusted for some reason
