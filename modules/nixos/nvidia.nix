@@ -13,6 +13,7 @@ in
     };
 
     unfree.allowedPackages = [
+      "nvidia-kernel-modules"
       "nvidia-settings"
       "nvidia-x11"
     ];
