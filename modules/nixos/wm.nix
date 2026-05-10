@@ -1,7 +1,7 @@
 { inputs, pkgs, ... }:
 {
   # wm stuff
-  programs.hyprland.enable = true;
+  programs.hyprland.enable = false;
   programs.niri.enable = true;
 
   environment.systemPackages = with pkgs; [
