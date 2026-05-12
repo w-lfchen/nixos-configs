@@ -1,0 +1,82 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "auto_install_extensions": {
+    "catppuccin": true,
+    "catppuccin-icons": true,
+    "nix": true,
+  },
+  "minimap": {
+    "show": "auto",
+  },
+  "window_decorations": "server",
+  "sticky_scroll": {
+    "enabled": true,
+  },
+  "inline_code_actions": false,
+  "inlay_hints": {
+    "enabled": true,
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "git_panel": {
+    "button": false,
+  },
+  "toolbar": {
+    "quick_actions": false,
+  },
+  "tabs": {
+    "file_icons": true,
+    "git_status": true,
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": false,
+    },
+  },
+  "search": {
+    "button": false,
+  },
+  "terminal": {
+    "button": false,
+  },
+  "collaboration_panel": {
+    "button": false,
+  },
+  "title_bar": {
+    "show_user_picture": false,
+    "show_user_menu": false,
+    "show_branch_status_icon": true,
+    "show_sign_in": false,
+  },
+  "show_whitespaces": "all",
+  "soft_wrap": "editor_width",
+  "buffer_font_family": "FiraCode Nerd Font Mono",
+  "languages": {
+    "Nix": {
+      "tab_size": 2,
+      "language_servers": ["nil"],
+    },
+  },
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Mocha",
+  },
+  "disable_ai": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "dark",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Mocha",
+  },
+}
