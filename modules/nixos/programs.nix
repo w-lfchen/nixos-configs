@@ -12,6 +12,7 @@
     thunderbird-latest
     vesktop
     xournalpp
+    zed-editor
     zotero
   ];
 

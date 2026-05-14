@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 {
   # helix
   catppuccin.helix = {
@@ -102,6 +107,12 @@
       };
     };
   };
+
+  # zed
+  # added through system packages, link config file
+  # currently not using the hm module since i'd like the config to be mutable for now and it's mutable options seem weird
+  xdg.configFile."zed".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-configs/config/zed-editor";
 
   # lsps/formatters
   home.packages = with pkgs; [
