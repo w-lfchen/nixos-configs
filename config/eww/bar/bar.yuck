@@ -8,52 +8,6 @@
       :text ""
     )))
 
-(defwidget workspaces []
-  (box
-    :space-evenly false
-    :spacing 0
-    (for workspace in workspaces
-      (button
-        :class "bar-button ${workspace.class}"
-        :onclick "hyprctl dispatch workspace ${workspace.id}"
-        (label
-          :class {workspace.active ? "ws-active-label":""}
-          :text {workspace.name}
-        )))))
-
-(defwidget workspaces-left []
-  (box
-    :space-evenly false
-    :spacing 5
-    (for workspace in {workspaces-left.workspaces}
-      (button
-        :class "bar-button ${workspace.class} ${workspaces-left.active && workspace.active ? "ws-active":""}"
-        :onclick "hyprctl dispatch workspace ${workspace.id}"
-        (label
-          :class {workspace.active ? "ws-active-label":""}
-          :text {workspace.name}
-        )))))
-
-(defwidget workspaces-right []
-  (box
-    :space-evenly false
-    :spacing 5
-    (for workspace in {workspaces-right.workspaces}
-      (button
-        :class "bar-button ${workspace.class} ${workspaces-right.active && workspace.active ? "ws-active":""}"
-        :onclick "hyprctl dispatch workspace ${workspace.id}"
-        (label
-          :class {workspace.active ? "ws-active-label":""}
-          :text {workspace.name}
-        )))))
-
-(defwidget title []
-  (label
-    :visible {current-window-title != ""}
-    :limit-width 80
-    :text current-window-title
-  ))
-
 ; currently only supporting spotify, other players may show up
 (defwidget music-icon []
   (label
