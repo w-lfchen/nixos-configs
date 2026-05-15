@@ -4,17 +4,7 @@
 
   # host specific config
   programs.wlogout.enable = true;
-  wayland.windowManager.hyprland.settings = {
-    monitor = [
-      "eDP-1,highres,0x0,1"
-      ",highres,1920x0,1"
-      #",preferred,auto,1,mirror,eDP-1"
-    ];
-    exec = [
-      "pkill swaybg; swaybg -i ${config.xdg.userDirs.pictures}/wallpapers/refuge/nix-cat-crust.png"
-      "pkill eww; eww o bar"
-    ];
-  };
+
   xdg.configFile."niri/config.kdl".source =
     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-configs/config/niri/voyage.kdl";
 }

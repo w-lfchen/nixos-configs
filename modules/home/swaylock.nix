@@ -21,6 +21,4 @@
       indicator-thickness = 7;
     };
   };
-
-  wayland.windowManager.hyprland.settings.bind = [ "$mainMod, X, exec, swaylock" ];
 }

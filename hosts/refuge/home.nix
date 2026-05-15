@@ -5,16 +5,7 @@
   # host specific config
   hardware.nvidia.enable = true;
   programs.obs-studio.enable = true;
-  wayland.windowManager.hyprland.settings = {
-    monitor = [
-      "DP-2,2560x1440@144,0x0,1"
-      "DP-3,2560x1440@144,2560x0,1"
-    ];
-    exec = [
-      "pkill swaybg; swaybg -o DP-3 -i ${config.xdg.userDirs.pictures}/wallpapers/refuge/nix-cat-crust.png -o DP-2 -i ${config.xdg.userDirs.pictures}/wallpapers/refuge/line-crust.png"
-      "pkill eww; eww open-many left-bar right-bar"
-    ];
-  };
+
   xdg.configFile."niri/config.kdl".source =
     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-configs/config/niri/refuge.kdl";
 }
