@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   # wm stuff
   programs.niri.enable = true;
@@ -8,8 +8,6 @@
     swaybg
     wl-clipboard
     xwayland-satellite
-
-    inputs.scripts-flake.packages.${stdenv.hostPlatform.system}.eww-helper
 
     (writeShellScriptBin "screenshot" ''
       sleep $1; ${grim}/bin/grim -g "$(${slurp}/bin/slurp)" - | magick - -shave 1x1 PNG:- | ${swappy}/bin/swappy -f -
