@@ -48,11 +48,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    scripts-flake = {
-      url = "github:w-lfchen/eww-scripts";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs = {
@@ -80,7 +75,6 @@
       lix,
       lix-module,
       nix-vscode-extensions,
-      scripts-flake,
       spicetify-nix,
       # not used
       flake-utils,

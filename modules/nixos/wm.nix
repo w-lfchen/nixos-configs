@@ -1,7 +1,6 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   # wm stuff
-  programs.hyprland.enable = false;
   programs.niri.enable = true;
 
   environment.systemPackages = with pkgs; [
@@ -9,8 +8,6 @@
     swaybg
     wl-clipboard
     xwayland-satellite
-
-    inputs.scripts-flake.packages.${stdenv.hostPlatform.system}.eww-helper
 
     (writeShellScriptBin "screenshot" ''
       sleep $1; ${grim}/bin/grim -g "$(${slurp}/bin/slurp)" - | magick - -shave 1x1 PNG:- | ${swappy}/bin/swappy -f -

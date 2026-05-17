@@ -1,27 +1,9 @@
 (include "./bar/bar.yuck")
 (include "./menu/menu.yuck")
 
-(deflisten workspaces
-  :initial "[]"
-  "eww-helper workspaces"
-)
-(deflisten workspaces-left
-  :initial "{\"active\":false,\"workspaces\":[]}"
-  "eww-helper workspaces -m DP-2"
-)
-(deflisten workspaces-right
-  :initial "{\"active\":false,\"workspaces\":[]}"
-  "eww-helper workspaces -m DP-3"
-)
-
-(deflisten current-window-title
-  :initial ""
-  "eww-helper window-title"
-)
-
 ; TODO: better scripts
 ; can some polls be converted to listening variables?
-; currently needed in path: nmcli, amixer, eww-helper, bluetoothctl, brightnessctl, playerctl
+; currently needed in path: nmcli, amixer, bluetoothctl, brightnessctl, playerctl
 (defpoll vol-out-percent
   :initial 100
   :interval "1s"

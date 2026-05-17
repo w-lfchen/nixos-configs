@@ -200,7 +200,6 @@
         "lix-module": "lix-module",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs",
-        "scripts-flake": "scripts-flake",
         "spicetify-nix": "spicetify-nix",
         "systems": "systems"
       }
@@ -223,26 +222,6 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "scripts-flake": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1730632455,
-        "narHash": "sha256-c+2VZJQqsNecIdmeHs6tp09yNIhKJHKGohvYgBZW1Og=",
-        "owner": "w-lfchen",
-        "repo": "eww-scripts",
-        "rev": "78b21e66b64be095a15ad91a1c5fcf01945037dd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "w-lfchen",
-        "repo": "eww-scripts",
         "type": "github"
       }
     },
