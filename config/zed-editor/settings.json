@@ -3,6 +3,7 @@
     "catppuccin": true,
     "catppuccin-icons": true,
     "nix": true,
+    "toml": true,
   },
   "minimap": {
     "show": "auto",
