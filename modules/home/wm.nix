@@ -1,7 +1,6 @@
-{ config, lib, ... }:
+{ config, ... }:
 {
   # bars and launchers
-  catppuccin.tofi.enable = true;
   programs = {
     fuzzel = {
       enable = true;
@@ -32,33 +31,6 @@
           lines = 5;
           width = 40;
         };
-      };
-    };
-    tofi = {
-      enable = true;
-      settings = {
-        # dimensions
-        height = 240;
-        width = 480;
-        padding-top = 20;
-        padding-bottom = 20;
-        padding-left = 20;
-        padding-right = 20;
-        num-results = 5;
-        result-spacing = 10;
-        # border/outline
-        border-color = "#cba6f7";
-        border-width = 2;
-        corner-radius = 10;
-        outline-width = 0;
-        # font
-        font = "FiraCode Nerd Font Propo";
-        font-size = 14;
-        # misc
-        terminal = "kitty";
-        text-cursor = true;
-        fuzzy-match = true;
-        drun-launch = true;
       };
     };
     # not really happy with this but it's enough for now.
@@ -114,11 +86,6 @@
       '';
     };
   };
-  # https://github.com/philj56/tofi/issues/115#issuecomment-1950273960
-  home.activation.regenerateTofiCache = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    tofi_cache=${config.xdg.cacheHome}/tofi-drun
-    [[ -f "$tofi_cache" ]] && rm "$tofi_cache"
-  '';
   # link eww configs into config dir
   # requires the config repo to be located at ~/nixos-configs
   xdg.configFile."eww".source =
