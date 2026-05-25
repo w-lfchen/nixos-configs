@@ -38,6 +38,7 @@
       url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
       inputs = {
         flake-utils.follows = "flake-utils";
+        flakey-profile.follows = "";
         lix.follows = "lix";
         nixpkgs.follows = "nixpkgs";
       };
