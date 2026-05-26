@@ -13,9 +13,4 @@
   # host specific config
 
   environment.systemPackages = with pkgs; [ brightnessctl ];
-
-  networking.shared-ethernet = {
-    enable = true;
-    interfaces = [ "enp3s0f0" ];
-  };
 }
