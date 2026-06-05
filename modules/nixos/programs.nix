@@ -4,7 +4,7 @@
     discord
     element-desktop
     gimp
-    jetbrains.idea
+    (jetbrains.idea.override { jdk = jetbrains.jdk-21; })
     librewolf
     obsidian
     signal-desktop
