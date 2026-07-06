@@ -8,6 +8,6 @@
 
 - [`config`](./config/) is for config files not written in Nix.
   Its contents are symlinked into the correct places through home-manager.
-- [`hosts`](./hosts/) declares the systems configured using this flake.
+- [`hosts`](./hosts/README.md) declares the systems configured using this flake.
 - [`modules`](./modules/) contains both NixOS and home-manager modules.
   Some modules define their own options, see the respective documentation.
