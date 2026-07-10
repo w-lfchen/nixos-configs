@@ -33,6 +33,7 @@
   # cursors
   catppuccin.cursors.enable = false;
   home.pointerCursor = {
+    enable = true;
     gtk.enable = true;
     name = "capitaine-cursors";
     package = pkgs.capitaine-cursors;
