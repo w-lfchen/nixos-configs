@@ -1,5 +1,7 @@
 # NixOS Configuration
 
+Configures NixOS and declares [some options](#declared-options) hosts may want to set.
+
 ## List of Modules
 
 - [`audio`](./audio.nix): Audio-related config.
@@ -18,9 +20,12 @@
 - [`shells`](./shells.nix): Config for TTYs, shells, and CLI programs.
 - [`users`](./users.nix): Configures users.
 - [`vpn`](./vpn.nix): Module for a TUDa VPN network manager profile.
-- [`wm`](./wm.nix): WM/Compisitor-related config.
+- [`wm`](./wm.nix): WM/Compositor-related config.
 
 ## Declared Options
+
+See the option declarations for more information and the implementation.
+
 - `boot.loader.grub.addWindowsEntry` (_boolean_):
   If enabled, adds a Grub entry to boot Windows from a partition with the label `WIN_BOOT`.
 - `hardware.nvidia.enable` (_boolean_):

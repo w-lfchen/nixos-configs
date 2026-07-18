@@ -1,9 +1,17 @@
 # Modules
 
-[`nixos`](./nixos/README.md) contains NixOS configurations, [`home`](./home/README.md) contains home-manager configs.
-All modules declared directly in this directory are used by both the home-manager and NixOS modules.
+NixOS configuration is declared in the [`nixos`](./nixos/README.md) directory.
+Home-manager is configured in the [`home`](./home/README.md) directory.
+For each of the two, the entire set can be importet through their respective `default.nix`.
+
+All modules declared directly in this directory are _universal_, i.e., used by both the home-manager and NixOS modules.
 
 ## List of Universal Modules
 
-- [`unfree`](./unfree.nix): This module declares one option: `unfree.allowedPackages`.
-  This option is used in both NixOS and home-manager configs to allow specific unfree programs to be installed, since `nixpkgs.config.allowUnfree` is set to `false`.
+- [`unfree`](./unfree.nix): Provides an easy interface to handle enabling unfree packages.
+
+## Universal Declared Options
+
+- `unfree.allowedPackages` (_list of string_):
+  This option allows specific unfree programs to be allowed, since `nixpkgs.config.allowUnfree` is set to `false` by default.
+  It works around the fact that `nixpkgs.config.allowUnfreePredicate` can only be declared in one place since it is a function, not a list of some sort.

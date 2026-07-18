@@ -1,6 +1,5 @@
 # Home-Manager Configuration
 
-Configuration for home-manager.
 Currently, no custom options are declared.
 
 ## List of Modules
