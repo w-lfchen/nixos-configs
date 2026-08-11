@@ -19,16 +19,6 @@
       flake = false;
     };
 
-    eww = {
-      # see https://github.com/elkowar/eww/pull/1217
-      url = "github:w-lfchen/eww/feat/updates";
-      # url = "github:elkowar/eww";
-      inputs = {
-        flake-compat.follows = "";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-
     lix = {
       url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
       flake = false;
@@ -72,7 +62,6 @@
       home-manager,
       catppuccin,
       catppuccin-grub,
-      eww,
       lix,
       lix-module,
       nix-vscode-extensions,

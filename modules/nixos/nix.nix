@@ -22,10 +22,7 @@
     ];
   };
 
-  nixpkgs = {
-    config.allowUnfree = false;
-    overlays = [ inputs.eww.overlays.default ];
-  };
+  nixpkgs.config.allowUnfree = false;
 
   programs.nh.enable = true;
 }

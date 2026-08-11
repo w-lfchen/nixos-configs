@@ -36,29 +36,6 @@
         "type": "github"
       }
     },
-    "eww": {
-      "inputs": {
-        "flake-compat": [],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-overlay": "rust-overlay"
-      },
-      "locked": {
-        "lastModified": 1762549916,
-        "narHash": "sha256-dKsg5Drxaq+zUrBmEvprnba4KE1gRe/uqTq8Ysz9wW4=",
-        "owner": "w-lfchen",
-        "repo": "eww",
-        "rev": "df44c1e5a1688a6fa15ea3ddeec48a482d1d4443",
-        "type": "github"
-      },
-      "original": {
-        "owner": "w-lfchen",
-        "ref": "feat/updates",
-        "repo": "eww",
-        "type": "github"
-      }
-    },
     "flake-utils": {
       "inputs": {
         "systems": [
@@ -178,7 +155,6 @@
       "inputs": {
         "catppuccin": "catppuccin",
         "catppuccin-grub": "catppuccin-grub",
-        "eww": "eww",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "lix": "lix",
@@ -187,27 +163,6 @@
         "nixpkgs": "nixpkgs",
         "spicetify-nix": "spicetify-nix",
         "systems": "systems"
-      }
-    },
-    "rust-overlay": {
-      "inputs": {
-        "nixpkgs": [
-          "eww",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1762483116,
-        "narHash": "sha256-Z8EVsTH10BjCdFyPxbUu5jBV+HGL39rh9+beQcnNRm0=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "9de55b59b6aaadbd9dbf223765a835239b767ee5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "type": "github"
       }
     },
     "spicetify-nix": {
