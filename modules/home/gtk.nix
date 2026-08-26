@@ -13,11 +13,7 @@
       name = "Catppuccin-GTK-Mauve-Dark";
       package = pkgs.magnetic-catppuccin-gtk.override {
         accent = [ "mauve" ];
-        tweaks = [
-          "float"
-          "macos"
-          "outline"
-        ];
+        tweaks = [ ];
       };
     };
   };
