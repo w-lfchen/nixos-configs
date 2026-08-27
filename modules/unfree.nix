@@ -13,6 +13,7 @@ in
     '';
     example = [
       "discord"
+      "discord-unwrapped"
       "spotify"
     ];
   };

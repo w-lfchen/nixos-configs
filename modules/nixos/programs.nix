@@ -4,7 +4,7 @@
     discord
     element-desktop
     gimp
-    (jetbrains.idea.override { jdk = jetbrains.jdk-21; })
+    jetbrains.idea
     librewolf
     obsidian
     signal-desktop
@@ -16,8 +16,17 @@
     zotero
   ];
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      jetbrains = prev.jetbrains // {
+        jdk = final.jetbrains.jdk-no-jcef-21;
+      };
+    })
+  ];
+
   unfree.allowedPackages = [
     "discord"
+    "discord-unwrapped"
     "idea"
     "obsidian"
     "slack"
