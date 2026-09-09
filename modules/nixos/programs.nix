@@ -16,14 +16,6 @@
     zotero
   ];
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      jetbrains = prev.jetbrains // {
-        jdk = final.jetbrains.jdk-no-jcef-21;
-      };
-    })
-  ];
-
   unfree.allowedPackages = [
     "discord"
     "discord-unwrapped"
