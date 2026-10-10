@@ -9,10 +9,7 @@
     '';
   };
 
-  catppuccin = {
-    imv.enable = true;
-    zathura.enable = true;
-  };
+  catppuccin.imv.enable = true;
   programs = {
     imv.enable = true;
     # https://github.com/nix-community/home-manager/issues/6800
@@ -22,14 +19,5 @@
     #   profiles."default".isDefault = true;
     # };
     obs-studio.plugins = [ pkgs.obs-studio-plugins.wlrobs ];
-    zathura = {
-      enable = true;
-      options = {
-        font = "FiraCode Nerd Font normal 10";
-        selection-clipboard = "clipboard";
-        statusbar-basename = true;
-        statusbar-page-percent = true;
-      };
-    };
   };
 }
