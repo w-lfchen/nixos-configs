@@ -29,5 +29,9 @@
       enable = true;
       openFirewall = true;
     };
+    java = {
+      enable = true;
+      package = pkgs.jdk21;
+    };
   };
 }
