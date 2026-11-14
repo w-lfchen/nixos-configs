@@ -19,7 +19,7 @@
   unfree.allowedPackages = [
     "discord"
     "discord-unwrapped"
-    "idea"
+    "intellij-idea"
     "obsidian"
     "slack"
   ];
