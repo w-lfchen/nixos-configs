@@ -36,26 +36,6 @@
         "type": "github"
       }
     },
-    "flake-utils": {
-      "inputs": {
-        "systems": [
-          "systems"
-        ]
-      },
-      "locked": {
-        "lastModified": 1794427683,
-        "narHash": "sha256-o7ey9gEilsxaifqJWnBDlYSKbNWYQYtKwDyXeZU2kaU=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "cd489559845d81f673a12885576016c65cbe9363",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -77,7 +57,17 @@
       }
     },
     "lix": {
-      "flake": false,
+      "inputs": {
+        "flake-compat": [],
+        "flakey-profile": [],
+        "nix2container": [],
+        "nix_2_18": [],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nixpkgs-regression": [],
+        "pre-commit-hooks": []
+      },
       "locked": {
         "lastModified": 1794608882,
         "narHash": "sha256-UcyKz4rDR3EZ8+7zfXijH/puvvLn6hXj7epeHRwjKEM=",
@@ -88,31 +78,6 @@
       "original": {
         "type": "tarball",
         "url": "https://git.lix.systems/lix-project/lix/archive/main.tar.gz"
-      }
-    },
-    "lix-module": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "flakey-profile": [],
-        "lix": [
-          "lix"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1791014283,
-        "narHash": "sha256-7KBL8PF28zweSpAAb62Dxo1oznqGUiXLu4807aAFw4s=",
-        "rev": "9311ca94aac0ff3378ab4eea887284d11de94158",
-        "type": "tarball",
-        "url": "https://git.lix.systems/api/v1/repos/lix-project/nixos-module/archive/9311ca94aac0ff3378ab4eea887284d11de94158.tar.gz?rev=9311ca94aac0ff3378ab4eea887284d11de94158"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz"
       }
     },
     "nix-vscode-extensions": {
@@ -155,10 +120,8 @@
       "inputs": {
         "catppuccin": "catppuccin",
         "catppuccin-grub": "catppuccin-grub",
-        "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "lix": "lix",
-        "lix-module": "lix-module",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs",
         "spicetify-nix": "spicetify-nix",

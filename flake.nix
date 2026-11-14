@@ -21,16 +21,14 @@
 
     lix = {
       url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
-      flake = false;
-    };
-
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
       inputs = {
-        flake-utils.follows = "flake-utils";
+        flake-compat.follows = "";
         flakey-profile.follows = "";
-        lix.follows = "lix";
+        nix2container.follows = "";
+        nix_2_18.follows = "";
         nixpkgs.follows = "nixpkgs";
+        nixpkgs-regression.follows = "";
+        pre-commit-hooks.follows = "";
       };
     };
 
@@ -49,10 +47,6 @@
 
     # just for 'follows'
     systems.url = "github:nix-systems/default";
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-      inputs.systems.follows = "systems";
-    };
   };
 
   outputs =
@@ -63,11 +57,9 @@
       catppuccin,
       catppuccin-grub,
       lix,
-      lix-module,
       nix-vscode-extensions,
       spicetify-nix,
       # not used
-      flake-utils,
       systems,
     }@inputs:
     let
