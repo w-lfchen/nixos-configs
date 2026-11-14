@@ -15,7 +15,6 @@ in
   config = {
     # always active
     boot = {
-      initrd.systemd.enable = true;
       loader = {
         efi.canTouchEfiVariables = true;
         grub = {
