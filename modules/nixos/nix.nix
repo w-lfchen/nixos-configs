@@ -1,7 +1,7 @@
 { inputs, pkgs, ... }:
 {
   imports = [
-    inputs.lix-module.nixosModules.default
+    inputs.lix.nixosModules.default
   ];
 
   environment.systemPackages = with pkgs; [

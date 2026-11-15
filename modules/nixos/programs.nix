@@ -19,9 +19,16 @@
   unfree.allowedPackages = [
     "discord"
     "discord-unwrapped"
-    "idea"
+    "intellij-idea"
     "obsidian"
     "slack"
+    # remove once zotero no longer relies on firefox 140
+    "firefox-esr-140-bin-unwrapped"
+  ];
+
+  # remove once zotero no longer relies on firefox 140
+  nixpkgs.config.permittedInsecurePackages = [
+    "firefox-esr-140-bin-unwrapped-140.17.0esr"
   ];
 
   programs = {
